@@ -1,0 +1,68 @@
+export const SAMPLE_STUDENTS = {
+  sakthi: {
+    username: "sakthi",
+    fullName: "Sakthi Kumar",
+    title: "Full Stack Developer & Systems Enthusiast",
+    bio: "Passionate engineer trained at Simatrix Academy. Specializing in building scalable web apps with Next.js, Node.js, and PostgreSQL. 180+ problems solved on CodeArena.",
+    avatar: "/avatars/sakthi.png",
+    location: "Chennai, India",
+    github: "https://github.com/sakthikumar",
+    linkedin: "https://linkedin.com/in/sakthikumar",
+    portfolio: "https://sakthi.dev",
+    careerStatus: "Ready for Interviews / Immediate Joiner",
+    stats: {
+      practiceScore: 2480,
+      globalRank: 14,
+      challengesSolved: 184,
+      streakDays: 42,
+      projectsShipped: 4,
+    },
+    skills: [
+      { name: "Python", level: 90 },
+      { name: "JavaScript / TypeScript", level: 85 },
+      { name: "React.js / Next.js", level: 80 },
+      { name: "SQL & PostgreSQL", level: 88 },
+      { name: "Node.js & Express", level: 82 },
+      { name: "Power BI", level: 75 },
+    ],
+    projects: [
+      {
+        title: "E-Commerce Dashboard",
+        description: "Real-time analytics and inventory management portal with stripe webhooks and sales forecasting.",
+        tech: ["React", "Node.js", "PostgreSQL", "TailwindCSS"],
+        github: "https://github.com/sakthikumar/ecommerce-dashboard",
+        liveUrl: "https://ecommerce-preview.simatrix.app",
+        verifiedBy: "Simatrix Academy",
+      },
+      {
+        title: "Diabetes Prediction ML Web App",
+        description: "Supervised machine learning classification model deployed with FastAPI and clean UI.",
+        tech: ["Python", "Scikit-Learn", "FastAPI", "React"],
+        github: "https://github.com/sakthikumar/diabetes-prediction-app",
+        verifiedBy: "Simatrix Academy",
+      },
+      {
+        title: "PDF Tools Suite",
+        description: "High-performance browser & server tool to merge, sign, compress and extract text from PDFs.",
+        tech: ["Python", "PyMuPDF", "Next.js"],
+        github: "https://github.com/sakthikumar/pdf-tools-suite",
+        verifiedBy: "Simatrix Academy",
+      },
+      {
+        title: "Automated Certificate Generator & QR Verifier",
+        description: "Tamper-proof digital certificate issuer with instant cryptographic signature & QR scanning.",
+        tech: ["Node.js", "Canvas", "PostgreSQL"],
+        github: "https://github.com/sakthikumar/cert-gen-verifier",
+        verifiedBy: "Simatrix Academy",
+      },
+    ],
+    certificates: [
+      {
+        id: "SIM-2026-FSD-000142",
+        name: "Full Stack Development Career Program",
+        issueDate: "September 2026",
+        verifyUrl: "/verify/SIM-2026-FSD-000142",
+      },
+    ],
+  },
+};

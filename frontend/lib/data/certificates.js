@@ -1,0 +1,26 @@
+export const SAMPLE_CERTIFICATES = {
+  "SIM-2026-FSD-000142": {
+    certificateId: "SIM-2026-FSD-000142",
+    studentName: "Sakthi Kumar",
+    programName: "Full Stack Development Career Program",
+    issueDate: "September 2026",
+    status: "VERIFIED",
+    grade: "Distinction (Score: 94%)",
+    skillsVerified: ["React.js", "Node.js", "PostgreSQL", "REST APIs", "Git/GitHub", "Docker Basics"],
+    capstoneProject: "Production E-Commerce Platform with Cart & Auth",
+    issuer: "Simatrix Academy Academic Council",
+    verificationUrl: "https://simatrixacademy.com/verify/SIM-2026-FSD-000142",
+  },
+  "SIM-2026-DA-000210": {
+    certificateId: "SIM-2026-DA-000210",
+    studentName: "Priya Raman",
+    programName: "Data Analytics & Business Intelligence Masterclass",
+    issueDate: "August 2026",
+    status: "VERIFIED",
+    grade: "First Class with Honours (Score: 91%)",
+    skillsVerified: ["SQL", "Power BI", "Python Pandas", "DAX Modeling", "Excel Modeling"],
+    capstoneProject: "Executive Sales & Revenue Analytics Dashboard",
+    issuer: "Simatrix Academy Academic Council",
+    verificationUrl: "https://simatrixacademy.com/verify/SIM-2026-DA-000210",
+  },
+};
