@@ -2,7 +2,8 @@ import Link from "next/link";
 
 export default function BrandLogo({ variant = "light" }) {
   const isLight = variant === "light";
-  const textColor = isLight ? "#FAF8F5" : "#0B1320";
+  const textColor = isLight ? "#FFFFFF" : "#0B1320";
+  const crestColor = isLight ? "#FFFFFF" : "#0B1320";
   const goldColor = "#E5A93C";
 
   return (
@@ -47,32 +48,32 @@ export default function BrandLogo({ variant = "light" }) {
           {/* Left Symmetrical Laurel Wreath */}
           <path
             d="M 47 88 C 28 85 14 68 14 48 C 14 34 24 20 40 13"
-            stroke={goldColor}
+            stroke={crestColor}
             strokeWidth="1.75"
             strokeLinecap="round"
           />
           {/* Left Leaves */}
-          <path d="M 28 75 C 20 72 18 64 24 59 C 29 64 30 71 28 75 Z" fill={goldColor} fillOpacity="0.9" />
-          <path d="M 19 56 C 12 50 14 42 20 38 C 24 43 23 51 19 56 Z" fill={goldColor} fillOpacity="0.9" />
-          <path d="M 20 38 C 16 30 22 23 28 22 C 29 29 25 35 20 38 Z" fill={goldColor} fillOpacity="0.9" />
-          <path d="M 30 24 C 28 15 36 12 41 13 C 40 20 35 24 30 24 Z" fill={goldColor} fillOpacity="0.9" />
+          <path d="M 28 75 C 20 72 18 64 24 59 C 29 64 30 71 28 75 Z" fill={crestColor} fillOpacity="0.9" />
+          <path d="M 19 56 C 12 50 14 42 20 38 C 24 43 23 51 19 56 Z" fill={crestColor} fillOpacity="0.9" />
+          <path d="M 20 38 C 16 30 22 23 28 22 C 29 29 25 35 20 38 Z" fill={crestColor} fillOpacity="0.9" />
+          <path d="M 30 24 C 28 15 36 12 41 13 C 40 20 35 24 30 24 Z" fill={crestColor} fillOpacity="0.9" />
 
           {/* Right Symmetrical Laurel Wreath */}
           <path
             d="M 53 88 C 72 85 86 68 86 48 C 86 34 76 20 60 13"
-            stroke={goldColor}
+            stroke={crestColor}
             strokeWidth="1.75"
             strokeLinecap="round"
           />
           {/* Right Leaves */}
-          <path d="M 72 75 C 80 72 82 64 76 59 C 71 64 70 71 72 75 Z" fill={goldColor} fillOpacity="0.9" />
-          <path d="M 81 56 C 88 50 86 42 80 38 C 76 43 77 51 81 56 Z" fill={goldColor} fillOpacity="0.9" />
-          <path d="M 80 38 C 84 30 78 23 72 22 C 71 29 75 35 80 38 Z" fill={goldColor} fillOpacity="0.9" />
-          <path d="M 70 24 C 72 15 64 12 59 13 C 60 20 65 24 70 24 Z" fill={goldColor} fillOpacity="0.9" />
+          <path d="M 72 75 C 80 72 82 64 76 59 C 71 64 70 71 72 75 Z" fill={crestColor} fillOpacity="0.9" />
+          <path d="M 81 56 C 88 50 86 42 80 38 C 76 43 77 51 81 56 Z" fill={crestColor} fillOpacity="0.9" />
+          <path d="M 80 38 C 84 30 78 23 72 22 C 71 29 75 35 80 38 Z" fill={crestColor} fillOpacity="0.9" />
+          <path d="M 70 24 C 72 15 64 12 59 13 C 60 20 65 24 70 24 Z" fill={crestColor} fillOpacity="0.9" />
 
           {/* Bottom Ribbon Knot */}
-          <circle cx="50" cy="89" r="2.5" fill={goldColor} />
-          <path d="M 44 88 Q 50 92 56 88" stroke={goldColor} strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="50" cy="89" r="2.5" fill={crestColor} />
+          <path d="M 44 88 Q 50 92 56 88" stroke={crestColor} strokeWidth="1.5" strokeLinecap="round" />
 
           {/* Classical Roman Serif Monogram S */}
           <path

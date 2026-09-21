@@ -7,11 +7,11 @@ export default function AnnouncementBar() {
     <aside
       aria-label="Admissions Announcement"
       style={{
-        background: "linear-gradient(90deg, #E5A93C 0%, #F3C668 50%, #E5A93C 100%)",
+        background: "#F5A623",
         color: "#0B1320",
         padding: "8px 24px",
         fontSize: "0.82rem",
-        fontWeight: 600,
+        fontWeight: 700,
         letterSpacing: "0.015em",
         display: "flex",
         alignItems: "center",
@@ -19,7 +19,7 @@ export default function AnnouncementBar() {
         gap: "16px",
         position: "relative",
         zIndex: 110,
-        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.08)",
+        fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", justifyContent: "center" }}>

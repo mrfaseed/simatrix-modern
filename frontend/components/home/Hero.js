@@ -15,8 +15,27 @@ export default function Hero() {
 
   const tabs = [
     {
+      id: "degree",
+      label: "THE DEGREE",
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+        </svg>
+      ),
+      badge: "ONLY 30 SEATS LEFT FOR 2026 BATCH",
+      headlineLead: "Build Your Career",
+      headlineAccent: "While You Earn a Portfolio of Proof",
+      subtitle: "Full-stack engineering, production Next.js microservices, generative AI pipelines, and mentor-verified codebases — tangible proof that opens doors to senior roles.",
+      bgImage: "/images/campus_hero.jpg",
+      primaryText: "See Outcomes",
+      primaryHref: "/career",
+      secondaryText: "Apply Now",
+      secondaryHref: "/contact",
+    },
+    {
       id: "campus",
-      label: "THE CAMPUS & LABS",
+      label: "THE CAMPUS",
       icon: (
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
@@ -25,69 +44,50 @@ export default function Hero() {
         </svg>
       ),
       badge: "UP TO 50% SCHOLARSHIP FOR ELIGIBLE STUDENTS",
-      headlineLead: "Leave with skills",
-      headlineAccent: "and a portfolio of proof.",
-      subtitle: "Production codebases, multi-tenant MVPs, verified GitHub commits, and senior mentor code reviews — tangible evidence that opens doors to high-paying engineering roles or your own tech venture.",
+      headlineLead: "A Tech Studio Built",
+      headlineAccent: "for Builders, Not Classrooms",
+      subtitle: "High-tech collaboration studios, 4K multi-monitor workstations, and active engineering mentors conducting real-time architecture critiques and code reviews.",
       bgImage: "/images/campus_hero.jpg",
-      primaryText: "See Outcomes",
-      primaryHref: "/career",
+      primaryText: "Explore Campus",
+      primaryHref: "/about",
       secondaryText: "Apply Now",
       secondaryHref: "/contact",
     },
     {
-      id: "curriculum",
-      label: "THE CURRICULUM",
+      id: "admissions",
+      label: "ADMISSIONS",
       icon: (
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
         </svg>
       ),
-      badge: "INDUSTRY 2026 PRODUCTION CURRICULUM",
-      headlineLead: "Learn modern tech",
-      headlineAccent: "and master production architectures.",
-      subtitle: "Full-stack engineering, Next.js 15, FastAPI, PostgreSQL, vector embeddings, and cloud microservices — zero outdated slides, 100% real-world engineering.",
+      badge: "NO ENTRANCE EXAM • MERIT EVALUATION",
+      headlineLead: "Simplified Cohort Selection",
+      headlineAccent: "& 1:1 Career Counseling",
+      subtitle: "Evaluate your aptitude through practical problem-solving rather than rote memorization. Rolling admission interviews with senior tech practitioners.",
       bgImage: "/images/campus_hero.jpg",
-      primaryText: "Explore Programs",
-      primaryHref: "/programs",
-      secondaryText: "Apply Now",
-      secondaryHref: "/contact",
-    },
-    {
-      id: "practice",
-      label: "CODEARENA LABS",
-      icon: (
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="16 18 22 12 16 6" />
-          <polyline points="8 6 2 12 8 18" />
-        </svg>
-      ),
-      badge: "IN-BROWSER LIVE CODE SANDBOX",
-      headlineLead: "Practice in-browser",
-      headlineAccent: "with instant automated feedback.",
-      subtitle: "Over 400 algorithmic drills, interactive SQLLab query consoles, and frontend React sandboxes with instant automated test feedback and daily XP streaks.",
-      bgImage: "/images/innovation_lab.jpg",
-      primaryText: "Try CodeArena Free",
-      primaryHref: "/practice",
+      primaryText: "Book 1:1 Counseling",
+      primaryHref: "/contact",
       secondaryText: "Apply Now",
       secondaryHref: "/contact",
     },
     {
       id: "outcomes",
-      label: "OUTCOMES & PROOF",
+      label: "OUTCOMES",
       icon: (
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="8" r="6" />
           <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
         </svg>
       ),
-      badge: "VERIFIED PROOF-OF-WORK PROFILES",
-      headlineLead: "Every graduate gets",
-      headlineAccent: "a verified public profile.",
-      subtitle: "Recruiters skip generic resumes. Every student showcases tamper-proof verified credentials, GitHub commits, mentor evaluations, and CodeArena rankings.",
-      bgImage: "/images/campus_hero.jpg",
-      primaryText: "Inspect Student Portfolio",
-      primaryHref: "/profile/sakthi",
+      badge: "VERIFIED PUBLIC PROOF-OF-WORK PROFILES",
+      headlineLead: "Leave with skills",
+      headlineAccent: "and a portfolio of proof.",
+      subtitle: "Production codebases, multi-tenant MVPs, verified GitHub commits, and senior mentor code reviews — tangible evidence that opens doors to high-paying engineering roles.",
+      bgImage: "/images/innovation_lab.jpg",
+      primaryText: "See Outcomes",
+      primaryHref: "/career",
       secondaryText: "Apply Now",
       secondaryHref: "/contact",
     },
@@ -112,33 +112,33 @@ export default function Hero() {
         transition: "background-image 0.6s ease-in-out",
       }}
     >
-      {/* Silky Cinematic Vignette Overlay */}
+      {/* Silky Left Vignette Gradient */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           background:
-            "linear-gradient(90deg, rgba(8, 14, 26, 0.96) 0%, rgba(8, 14, 26, 0.86) 38%, rgba(8, 14, 26, 0.32) 70%, rgba(8, 14, 26, 0.08) 100%)",
+            "linear-gradient(90deg, rgba(8, 14, 26, 0.96) 0%, rgba(8, 14, 26, 0.88) 38%, rgba(8, 14, 26, 0.32) 70%, rgba(8, 14, 26, 0.08) 100%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
       />
 
-      {/* Subtle Top Shadow Fade */}
+      {/* Top Silky Shadow behind Transparent Header */}
       <div
         style={{
           position: "absolute",
           top: 0,
           left: 0,
           right: 0,
-          height: "90px",
-          background: "linear-gradient(180deg, rgba(8, 14, 26, 0.85) 0%, transparent 100%)",
+          height: "140px",
+          background: "linear-gradient(180deg, rgba(8, 14, 26, 0.95) 0%, rgba(8, 14, 26, 0.6) 70px, transparent 100%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
       />
 
-      {/* Bottom Soft Fade into White Body */}
+      {/* Bottom Soft Fade into Page Content */}
       <div
         style={{
           position: "absolute",
@@ -157,17 +157,17 @@ export default function Hero() {
         style={{
           position: "relative",
           zIndex: 2,
-          paddingTop: "60px",
+          paddingTop: "115px", // Generous clearance for the transparent floating navbar
           paddingBottom: "80px",
         }}
       >
-        {/* Milestone Navigation Tabs (Exact VIIV Alignment: Clean, spaced, delicate gold arcs) */}
+        {/* Milestone Navigation Tabs (VIIV India Exact Alignment) */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             gap: "28px",
-            marginBottom: "44px",
+            marginBottom: "40px",
             flexWrap: "wrap",
           }}
         >
@@ -191,6 +191,7 @@ export default function Hero() {
                   textTransform: "uppercase",
                   padding: "4px 0",
                   transition: "all 0.2s ease",
+                  fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
                 }}
               >
                 {/* Circular Icon with Glowing Gold Ring on Active */}
@@ -220,10 +221,10 @@ export default function Hero() {
           })}
         </div>
 
-        {/* Content Column */}
+        {/* Hero Left Content Column */}
         <div style={{ maxWidth: "660px" }}>
           
-          {/* Gold Scholarship Badge (VIIV Refined Pill) */}
+          {/* Gold Scholarship Badge (VIIV Exact Match) */}
           <div
             style={{
               display: "inline-block",
@@ -237,18 +238,20 @@ export default function Hero() {
               textTransform: "uppercase",
               marginBottom: "24px",
               boxShadow: "0 4px 14px rgba(229, 169, 60, 0.3)",
+              fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
             }}
           >
             {current.badge}
           </div>
 
-          {/* Editorial Headline (VIIV Match) */}
+          {/* Bold Editorial Headline (Pure Geometric Sans, No Serif!) */}
           <h1
             style={{
-              fontSize: "clamp(2.5rem, 4.8vw, 4.1rem)",
+              fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif !important",
+              fontSize: "clamp(2.4rem, 4.6vw, 4rem)",
               fontWeight: 800,
-              lineHeight: 1.12,
-              letterSpacing: "-0.03em",
+              lineHeight: 1.1,
+              letterSpacing: "-0.035em",
               color: "#FFFFFF",
               marginBottom: "22px",
               textShadow: "0 2px 18px rgba(0, 0, 0, 0.45)",
@@ -261,7 +264,8 @@ export default function Hero() {
           {/* Subtitle Paragraph */}
           <p
             style={{
-              fontSize: "clamp(1rem, 1.6vw, 1.15rem)",
+              fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
+              fontSize: "clamp(1rem, 1.5vw, 1.14rem)",
               color: "rgba(255, 255, 255, 0.78)",
               lineHeight: 1.68,
               marginBottom: "38px",
@@ -281,7 +285,7 @@ export default function Hero() {
               flexWrap: "wrap",
             }}
           >
-            {/* Primary Gold Pill */}
+            {/* Primary Gold Pill Button */}
             <Link
               href={current.primaryHref}
               style={{
@@ -298,6 +302,7 @@ export default function Hero() {
                 textDecoration: "none",
                 boxShadow: "0 4px 18px rgba(229, 169, 60, 0.35)",
                 transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-2px)";
@@ -312,14 +317,14 @@ export default function Hero() {
               <span>{current.primaryText}</span>
             </Link>
 
-            {/* Secondary Translucent Glass Pill */}
+            {/* Secondary Dark Navy/Glass Pill Button */}
             <Link
               href={current.secondaryHref}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "8px",
-                background: "rgba(255, 255, 255, 0.08)",
+                background: "#1C283F",
                 color: "#FAF8F5",
                 padding: "13px 28px",
                 borderRadius: "999px",
@@ -327,10 +332,10 @@ export default function Hero() {
                 fontWeight: 600,
                 letterSpacing: "0.01em",
                 textDecoration: "none",
-                border: "1px solid rgba(255, 255, 255, 0.22)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.25)",
-                backdropFilter: "blur(12px)",
                 transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "rgba(255, 255, 255, 0.16)";
@@ -338,8 +343,8 @@ export default function Hero() {
                 e.currentTarget.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.22)";
+                e.currentTarget.style.background = "#1C283F";
+                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >

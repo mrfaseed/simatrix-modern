@@ -7,7 +7,7 @@ import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-jakarta",
   weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
@@ -27,7 +27,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`}>
-      <body style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <body className={plusJakartaSans.className} style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
         <AnnouncementBar />
         <Navbar />
         <main style={{ flexGrow: 1 }}>
