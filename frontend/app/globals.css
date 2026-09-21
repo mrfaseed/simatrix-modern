@@ -388,3 +388,46 @@ input:focus, textarea:focus, select:focus {
     display: flex !important;
   }
 }
+
+/* Luxury Nav Link Micro-Interactions */
+.nav-link-item {
+  position: relative;
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: #E5A93C;
+  box-shadow: 0 0 8px rgba(229, 169, 60, 0.8);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+.nav-link-item:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

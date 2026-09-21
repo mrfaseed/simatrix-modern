@@ -1,12 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import BrandLogo from "@/components/common/BrandLogo";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     {
@@ -61,13 +70,18 @@ export default function Navbar() {
         position: "sticky",
         top: 0,
         zIndex: 100,
-        background: "rgba(8, 14, 26, 0.75)",
-        backdropFilter: "blur(28px)",
-        WebkitBackdropFilter: "blur(28px)",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+        height: "70px",
+        display: "flex",
+        alignItems: "center",
+        background: scrolled ? "rgba(8, 14, 26, 0.88)" : "rgba(8, 14, 26, 0.28)",
+        backdropFilter: scrolled ? "blur(24px)" : "blur(14px)",
+        WebkitBackdropFilter: scrolled ? "blur(24px)" : "blur(14px)",
+        borderBottom: scrolled ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(255, 255, 255, 0.06)",
+        boxShadow: scrolled ? "0 10px 30px -10px rgba(0, 0, 0, 0.5)" : "none",
+        transition: "background 0.3s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
       }}
     >
-      {/* Hairline Golden Edge */}
+      {/* Hairline Gold Micro-Gradient Edge */}
       <div
         style={{
           position: "absolute",
@@ -75,7 +89,7 @@ export default function Navbar() {
           left: 0,
           right: 0,
           height: "1px",
-          background: "linear-gradient(90deg, transparent 0%, rgba(229, 169, 60, 0.4) 50%, transparent 100%)",
+          background: "linear-gradient(90deg, transparent 0%, rgba(229, 169, 60, 0.45) 50%, transparent 100%)",
           pointerEvents: "none",
         }}
       />
@@ -86,19 +100,19 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          height: "76px",
+          width: "100%",
         }}
       >
-        {/* Brand Crest & Monogram */}
+        {/* Luxury Brand Crest & Wordmark */}
         <BrandLogo variant="light" />
 
-        {/* Minimal Desktop Navigation (Spacious & Clean, VIIV Style) */}
+        {/* Minimal Desktop Navigation */}
         <nav
           className="desktop-nav"
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "28px",
+            gap: "34px",
           }}
         >
           {navItems.map((item) => (
@@ -110,17 +124,17 @@ export default function Navbar() {
             >
               <Link
                 href={item.href}
+                className="nav-link-item"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "6px",
-                  fontSize: "0.93rem",
+                  fontSize: "0.9rem",
                   fontWeight: 500,
                   color: activeDropdown === item.label ? "#FFFFFF" : "rgba(255, 255, 255, 0.78)",
-                  padding: "6px 0",
+                  padding: "8px 0",
                   textDecoration: "none",
-                  transition: "color 0.2s ease",
-                  letterSpacing: "0.01em",
+                  letterSpacing: "0.015em",
                 }}
               >
                 <span>{item.label}</span>
@@ -145,21 +159,21 @@ export default function Navbar() {
                 )}
               </Link>
 
-              {/* Mega Dropdown Panel */}
+              {/* Frosted Floating Mega-Dropdown */}
               {item.dropdown && activeDropdown === item.label && (
                 <div
                   style={{
                     position: "absolute",
-                    top: "calc(100% + 14px)",
-                    left: "-16px",
+                    top: "calc(100% + 12px)",
+                    left: "-18px",
                     width: "360px",
-                    background: "rgba(11, 19, 32, 0.96)",
-                    backdropFilter: "blur(24px)",
-                    WebkitBackdropFilter: "blur(24px)",
-                    border: "1px solid rgba(229, 169, 60, 0.25)",
+                    background: "rgba(10, 16, 30, 0.94)",
+                    backdropFilter: "blur(28px)",
+                    WebkitBackdropFilter: "blur(28px)",
+                    border: "1px solid rgba(255, 255, 255, 0.12)",
                     borderRadius: "18px",
                     padding: "16px",
-                    boxShadow: "0 24px 64px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                    boxShadow: "0 28px 70px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(229, 169, 60, 0.15)",
                     display: "flex",
                     flexDirection: "column",
                     gap: "4px",
@@ -173,9 +187,9 @@ export default function Navbar() {
                       fontWeight: 700,
                       color: "#E5A93C",
                       textTransform: "uppercase",
-                      letterSpacing: "0.16em",
+                      letterSpacing: "0.18em",
                       padding: "4px 8px 10px 8px",
-                      borderBottom: "1px solid rgba(255, 255, 255, 0.07)",
+                      borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
                       marginBottom: "6px",
                     }}
                   >
@@ -232,84 +246,91 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right Side: Phone & Apply Button (Never Wrap) */}
+        {/* Right Side: Admissions Phone with Pulse Dot & Gold Pill CTA */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "22px",
+            gap: "24px",
             flexShrink: 0,
           }}
         >
-          {/* Direct Phone Number on a Single Line */}
+          {/* Live Admissions Hotline */}
           <a
             href="tel:+918925991788"
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              fontSize: "0.88rem",
+              fontSize: "0.86rem",
               fontWeight: 500,
-              color: "rgba(255, 255, 255, 0.8)",
+              color: "rgba(255, 255, 255, 0.85)",
               textDecoration: "none",
               whiteSpace: "nowrap",
               transition: "color 0.15s ease",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "#FFFFFF")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255, 255, 255, 0.8)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255, 255, 255, 0.85)")}
           >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{ color: "#E5A93C" }}
-            >
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
+            {/* Live Green Pulsing Indicator Dot */}
+            <span style={{ position: "relative", display: "inline-flex", width: "8px", height: "8px" }}>
+              <span
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  borderRadius: "50%",
+                  background: "#10B981",
+                  opacity: 0.75,
+                  animation: "ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite",
+                }}
+              />
+              <span
+                style={{
+                  position: "relative",
+                  width: "8px",
+                  height: "8px",
+                  borderRadius: "50%",
+                  background: "#10B981",
+                }}
+              />
+            </span>
             <span>+91 89259 91788</span>
           </a>
 
-          {/* Luxury Translucent Pill Button (VIIV Style) */}
+          {/* Luxury 24k Gold Pill Button with Arrow */}
           <Link
             href="/contact"
             style={{
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "rgba(255, 255, 255, 0.08)",
-              border: "1px solid rgba(255, 255, 255, 0.22)",
-              color: "#FFFFFF",
-              padding: "9px 24px",
+              gap: "6px",
+              background: "linear-gradient(135deg, #E5A93C 0%, #D49826 100%)",
+              color: "#0B1320",
+              padding: "9px 22px",
               borderRadius: "999px",
-              fontSize: "0.88rem",
-              fontWeight: 600,
-              letterSpacing: "0.01em",
+              fontSize: "0.85rem",
+              fontWeight: 700,
+              letterSpacing: "0.02em",
               textDecoration: "none",
               whiteSpace: "nowrap",
-              transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+              boxShadow: "0 2px 14px rgba(229, 169, 60, 0.35)",
+              transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#E5A93C";
-              e.currentTarget.style.color = "#0B1320";
-              e.currentTarget.style.borderColor = "#E5A93C";
-              e.currentTarget.style.boxShadow = "0 4px 16px rgba(229, 169, 60, 0.35)";
+              e.currentTarget.style.transform = "translateY(-1px)";
+              e.currentTarget.style.boxShadow = "0 6px 22px rgba(229, 169, 60, 0.55)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
-              e.currentTarget.style.color = "#FFFFFF";
-              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.22)";
-              e.currentTarget.style.boxShadow = "none";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 2px 14px rgba(229, 169, 60, 0.35)";
             }}
           >
-            Apply Now
+            <span>Apply Now</span>
+            <span style={{ fontSize: "0.9rem" }}>→</span>
           </Link>
 
-          {/* Mobile Drawer Trigger (Hidden on Desktop via CSS) */}
+          {/* Mobile Drawer Trigger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="mobile-toggle"
@@ -332,16 +353,22 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Modal Drawer */}
       {mobileMenuOpen && (
         <div
           style={{
-            background: "rgba(11, 19, 32, 0.98)",
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            right: 0,
+            background: "rgba(10, 16, 30, 0.98)",
+            backdropFilter: "blur(24px)",
             borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
             padding: "20px 24px 28px 24px",
             display: "flex",
             flexDirection: "column",
             gap: "16px",
+            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.6)",
           }}
         >
           {navItems.map((item) => (
@@ -380,15 +407,18 @@ export default function Navbar() {
                 color: "#E5A93C",
                 fontWeight: 600,
                 textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
               }}
             >
-              📞 +91 89259 91788
+              <span>📞 +91 89259 91788</span>
             </a>
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
               style={{
-                background: "#E5A93C",
+                background: "linear-gradient(135deg, #E5A93C 0%, #D49826 100%)",
                 color: "#0B1320",
                 padding: "12px",
                 borderRadius: "999px",
