@@ -26,10 +26,11 @@ export default function ContactPage() {
           {!submitted ? (
             <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               <div>
-                <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
+                <label htmlFor="contactFullName" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
                   Your Full Name
                 </label>
                 <input
+                  id="contactFullName"
                   type="text"
                   required
                   placeholder="e.g. Sakthi Kumar"
@@ -38,22 +39,23 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
+                <label htmlFor="contactPhone" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
                   Phone Number
                 </label>
                 <input
+                  id="contactPhone"
                   type="tel"
                   required
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 89033 90051"
                   style={{ width: "100%", padding: "12px 16px", borderRadius: "var(--radius-sm)", background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-subtle)", color: "#fff", outline: "none" }}
                 />
               </div>
 
               <div>
-                <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
+                <label htmlFor="contactProgram" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
                   Program of Interest
                 </label>
-                <select style={{ width: "100%", padding: "12px 16px", borderRadius: "var(--radius-sm)", background: "#131924", border: "1px solid var(--border-subtle)", color: "#fff", outline: "none" }}>
+                <select id="contactProgram" style={{ width: "100%", padding: "12px 16px", borderRadius: "var(--radius-sm)", background: "#131924", border: "1px solid var(--border-subtle)", color: "#fff", outline: "none" }}>
                   <option>Full Stack Development Career Program</option>
                   <option>Data Analytics Masterclass</option>
                   <option>Data Science & AI Program</option>
@@ -76,10 +78,13 @@ export default function ContactPage() {
           )}
         </Card>
 
-        <div style={{ display: "flex", justifyContent: "space-around", marginTop: "40px", fontSize: "0.9rem", color: "var(--text-muted)", flexWrap: "wrap", gap: "16px" }}>
-          <span>📍 {SITE_CONFIG.location}</span>
-          <span>📞 {SITE_CONFIG.phone}</span>
-          <span>✉️ {SITE_CONFIG.email}</span>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px", marginTop: "40px", fontSize: "0.92rem", color: "var(--text-muted)", textAlign: "center" }}>
+          <div>📍 {SITE_CONFIG.address}</div>
+          <div style={{ display: "flex", gap: "20px", flexWrap: "wrap", justifyContent: "center" }}>
+            <span>📞 {SITE_CONFIG.phone}</span>
+            <span>✉️ {SITE_CONFIG.email}</span>
+            <span>🌐 simatrixacademy.com</span>
+          </div>
         </div>
       </div>
     </div>

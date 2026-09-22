@@ -4,9 +4,10 @@ export const SITE_CONFIG = {
   tagline: "Learn. Build. Prove. Get Career Ready.",
   description: "A modern technology learning and career platform where students learn high-impact skills, practice on interactive labs, build production-grade projects, and build verifiable proof of their abilities.",
   url: "https://simatrixacademy.com",
-  phone: "+91 98765 43210",
-  email: "admissions@simatrixacademy.com",
-  location: "Chennai & Online, India",
+  phone: "+91 89033 90051 | +91 93637 93954",
+  email: "info@simatrixacademy.com",
+  address: "1/2A, 1st Floor, AA Road, Near Head Post Office, Virudhunagar – 626001",
+  location: "1/2A, 1st Floor, AA Road, Near Head Post Office, Virudhunagar – 626001",
 };
 
 export const NAV_LINKS = [
@@ -71,8 +72,8 @@ export const FOOTER_LINKS = {
     { label: "Full Stack Development", href: "/programs/full-stack-development" },
     { label: "Data Analytics Masterclass", href: "/programs/data-analytics" },
     { label: "Data Science & AI", href: "/programs/data-science-ai" },
-    { label: "Python & Backend Systems", href: "/programs/python-backend" },
-    { label: "Frontend Engineering", href: "/programs/frontend-engineering" },
+    { label: "All Career Programs", href: "/programs" },
+    { label: "Free Learning Resources", href: "/free-learning" },
   ],
   practice: [
     { label: "CodeArena", href: "/practice/code-arena" },

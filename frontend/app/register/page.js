@@ -1,10 +1,18 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Card from "@/components/common/Card";
 import Button from "@/components/common/Button";
 
 export default function RegisterPage() {
+  const router = useRouter();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push("/dashboard");
+  };
+
   return (
     <div className="section" style={{ minHeight: "80vh", display: "flex", alignItems: "center" }}>
       <div className="container" style={{ maxWidth: "480px" }}>
@@ -16,12 +24,13 @@ export default function RegisterPage() {
             </p>
           </div>
 
-          <form onSubmit={(e) => { e.preventDefault(); window.location.href = "/dashboard"; }} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             <div>
-              <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
+              <label htmlFor="regFullNameInput" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
                 Full Name
               </label>
               <input
+                id="regFullNameInput"
                 type="text"
                 placeholder="e.g. Sakthi Kumar"
                 required
@@ -30,10 +39,11 @@ export default function RegisterPage() {
             </div>
 
             <div>
-              <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
+              <label htmlFor="regEmailInput" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
                 Email Address
               </label>
               <input
+                id="regEmailInput"
                 type="email"
                 placeholder="you@example.com"
                 required
@@ -42,10 +52,11 @@ export default function RegisterPage() {
             </div>
 
             <div>
-              <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
+              <label htmlFor="regPasswordInput" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
                 Create Password
               </label>
               <input
+                id="regPasswordInput"
                 type="password"
                 placeholder="At least 8 characters"
                 required

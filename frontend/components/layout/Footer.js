@@ -44,6 +44,7 @@ export default function Footer() {
               <span>📍 {SITE_CONFIG.location}</span>
               <span>📞 {SITE_CONFIG.phone}</span>
               <span>✉️ {SITE_CONFIG.email}</span>
+              <span>🌐 simatrixacademy.com</span>
             </div>
           </div>
 

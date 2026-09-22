@@ -161,7 +161,7 @@ export default function Hero() {
           paddingBottom: "80px",
         }}
       >
-        {/* Milestone Navigation Tabs (VIIV India Exact Alignment) */}
+        {/* Milestone Navigation Tabs (Clean, spaced, delicate gold arcs) */}
         <div
           style={{
             display: "flex",
@@ -224,7 +224,7 @@ export default function Hero() {
         {/* Hero Left Content Column */}
         <div style={{ maxWidth: "660px" }}>
           
-          {/* Gold Scholarship Badge (VIIV Exact Match) */}
+          {/* Gold Scholarship Badge (Refined Pill) */}
           <div
             style={{
               display: "inline-block",
@@ -276,7 +276,7 @@ export default function Hero() {
             {current.subtitle}
           </p>
 
-          {/* Dual Pill Action Buttons with Dots (VIIV Exact Match) */}
+          {/* Dual Pill Action Buttons with Dots */}
           <div
             style={{
               display: "flex",

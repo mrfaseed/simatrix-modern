@@ -12,7 +12,7 @@ import Button from "@/components/common/Button";
 export default function Home() {
   return (
     <div>
-      {/* 1. Viiv-Style Luxury Hero Section */}
+      {/* 1. Luxury Hero Section */}
       <Hero />
 
       {/* 2. Leading Companies / Partners Bar */}
@@ -81,7 +81,7 @@ export default function Home() {
       {/* 6. Build & Proof of Work Section */}
       <BuildSection />
 
-      {/* 7. Viiv-Style Practitioner Faculty & Mentors Section */}
+      {/* 7. Practitioner Faculty & Mentors Section */}
       <MentorsSection />
 
       {/* 8. Free Sunday Workshops Section */}
@@ -165,7 +165,7 @@ export default function Home() {
                 </div>
                 <div>
                   <div style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--vil-navy)" }}>Sakthi Kumar</div>
-                  <div style={{ fontSize: "0.85rem", color: "var(--vil-gold-dim)", fontWeight: 700 }}>Full Stack Developer • Chennai</div>
+                  <div style={{ fontSize: "0.85rem", color: "var(--vil-gold-dim)", fontWeight: 700 }}>Full Stack Developer • Virudhunagar</div>
                 </div>
               </div>
 
@@ -239,7 +239,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 10. Luxury Viiv-Inspired Executive Call to Action */}
+      {/* 10. Executive Call to Action */}
       <section className="section" style={{ background: "var(--vil-ivory)" }}>
         <div className="container">
           <div style={{

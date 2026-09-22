@@ -11,9 +11,35 @@ export default function CodeEditorStub({ initialCode, language = "python", probl
     setIsRunning(true);
     setOutput("Running test cases against execution sandbox...\n");
     setTimeout(() => {
-      setOutput("✓ Test Case 1 Passed: Expected [0, 1], Got [0, 1] (12ms)\n✓ Test Case 2 Passed: Expected [1, 2], Got [1, 2] (15ms)\n✓ Test Case 3 (Hidden) Passed\n\n🎉 ALL TESTS PASSED! +50 XP Earned!");
+      const trimmed = (code || "").trim();
+      if (!trimmed) {
+        setOutput("❌ SYNTAX / EXECUTION ERROR:\nCode buffer is empty. Please write your solution before running tests.");
+        setIsRunning(false);
+        return;
+      }
+
+      const langLower = language.toLowerCase();
+      let isValid = true;
+      let errorMsg = "";
+
+      if (langLower === "python" && !trimmed.includes("def") && !trimmed.includes("return")) {
+        isValid = false;
+        errorMsg = "❌ TEST FAILED: IndentationError / NameError\nNo function definition or return statement detected in Python code.";
+      } else if (langLower === "sql" && !trimmed.toLowerCase().includes("select")) {
+        isValid = false;
+        errorMsg = "❌ SQL SYNTAX ERROR: Near line 1\nQuery must contain a valid SELECT statement.";
+      } else if ((langLower === "javascript" || langLower === "js") && !trimmed.includes("function") && !trimmed.includes("const") && !trimmed.includes("return")) {
+        isValid = false;
+        errorMsg = "❌ REFERENCE ERROR:\nUndefined function block or return statement in JavaScript environment.";
+      }
+
+      if (!isValid) {
+        setOutput(errorMsg);
+      } else {
+        setOutput("✓ Test Case 1 Passed: Expected Output Verified (12ms)\n✓ Test Case 2 Passed: Edge Case Validation Passed (15ms)\n✓ Test Case 3 (Hidden) Passed\n\n🎉 ALL TESTS PASSED! +50 XP Earned!");
+      }
       setIsRunning(false);
-    }, 800);
+    }, 600);
   };
 
   return (

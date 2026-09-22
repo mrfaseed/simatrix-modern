@@ -2,7 +2,7 @@
   --font-sans: var(--font-jakarta), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', monospace;
 
-  /* VIIV-Inspired Luxury Editorial Palette: Warm Ivory & Executive Navy with Gold Accents */
+  /* Luxury Editorial Palette: Warm Ivory & Executive Navy with Gold Accents */
   --vil-ivory: #FAF8F5;
   --vil-ivory-light: #FDFCFB;
   --vil-surface: #FFFFFF;
@@ -204,7 +204,7 @@ p {
   .section-title { font-size: 1.85rem; }
 }
 
-/* UI Components: VIIV-Style Pill Buttons */
+/* UI Components: Pill Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -365,7 +365,7 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 0 3px rgba(201, 151, 56, 0.18) !important;
 }
 
-/* Subtle background dot pattern like viiv-dot-bg-light */
+/* Subtle background dot pattern */
 .bg-dot-pattern {
   background-image: radial-gradient(#D5CEBE 1px, transparent 1px);
   background-size: 24px 24px;
@@ -378,6 +378,15 @@ input:focus, textarea:focus, select:focus {
 
 .desktop-nav {
   display: flex !important;
+}
+
+@media (min-width: 1081px) and (max-width: 1220px) {
+  .desktop-nav {
+    gap: 14px !important;
+  }
+  .desktop-nav a {
+    font-size: 0.85rem !important;
+  }
 }
 
 @media (max-width: 1080px) {

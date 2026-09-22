@@ -3,7 +3,7 @@
 export default function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/918925991788?text=Hello%20Simatrix%20Academy%20Team%2C%20I%20would%20like%20to%20know%20more%20about%20the%202026%20Admissions%20and%20Programs."
+      href="https://wa.me/918903390051?text=Hello%20Simatrix%20Academy%20Team%2C%20I%20would%20like%20to%20know%20more%20about%20the%202026%20Admissions%20and%20Programs."
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

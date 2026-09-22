@@ -17,7 +17,7 @@ export default function BuildSection() {
           </p>
         </div>
 
-        {/* Viiv-style step workflow pills */}
+        {/* Step workflow pills */}
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",

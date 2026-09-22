@@ -35,7 +35,7 @@ export default function ProgramsPage() {
                 </span>
               </div>
 
-              <h2 style={{ fontSize: "1.35rem", color: "#fff", marginBottom: "10px" }}>
+              <h2 style={{ fontSize: "1.35rem", color: "var(--text-primary)", marginBottom: "10px" }}>
                 {program.title}
               </h2>
 

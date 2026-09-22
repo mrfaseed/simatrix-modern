@@ -23,7 +23,7 @@ export default function AnnouncementBar() {
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", justifyContent: "center" }}>
-        <span>2026 Admissions Open — Limited Seats at the Chennai Campus | Scholarships Up to 50% Available</span>
+        <span>2026 Admissions Open — Limited Seats at the Virudhunagar Campus | Scholarships Up to 50% Available</span>
       </div>
       <Link
         href="/contact"

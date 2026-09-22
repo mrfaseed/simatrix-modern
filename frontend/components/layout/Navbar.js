@@ -22,9 +22,9 @@ export default function Navbar() {
       label: "Programs",
       href: "/programs",
       dropdown: [
-        { label: "Full Stack Engineering", href: "/programs/full-stack-engineering", desc: "Next.js, Python, PostgreSQL & Cloud Deployments" },
-        { label: "Data Analytics & AI", href: "/programs/data-analytics-ai", desc: "SQL, Power BI, Python & LLM Workflows" },
-        { label: "Master Full Stack & AI", href: "/programs/master-fullstack-ai", desc: "Comprehensive 6-month elite developer fellowship" },
+        { label: "Full Stack Development", href: "/programs/full-stack-development", desc: "Next.js, Python, PostgreSQL & Cloud Deployments" },
+        { label: "Data Analytics & BI", href: "/programs/data-analytics", desc: "SQL, Power BI, Python & LLM Workflows" },
+        { label: "Data Science & Generative AI", href: "/programs/data-science-ai", desc: "Comprehensive 6-month elite developer fellowship" },
         { label: "Explore All Programs", href: "/programs", desc: "Compare curriculum, pricing & outcomes" },
       ],
     },
@@ -35,7 +35,7 @@ export default function Navbar() {
         { label: "CodeArena IDE", href: "/practice/code-arena", desc: "Multi-language in-browser coding sandbox" },
         { label: "SQLLab", href: "/practice/sql-lab", desc: "Interactive database query environment" },
         { label: "WebLab Sandbox", href: "/practice/web-lab", desc: "Live React and frontend developer drills" },
-        { label: "Chennai Tech Studio", href: "/about", desc: "In-person collaborative innovation labs" },
+        { label: "Virudhunagar Tech Studio", href: "/about", desc: "In-person collaborative innovation labs" },
       ],
     },
     {
@@ -84,7 +84,7 @@ export default function Navbar() {
         {/* Brand Crest & Wordmark (Pure White Luxury Vector) */}
         <BrandLogo variant="light" />
 
-        {/* Minimal Desktop Navigation (Spacious & Clean, VIIV Exact Match) */}
+        {/* Minimal Desktop Navigation (Spacious & Clean) */}
         <nav
           className="desktop-nav"
           style={{
@@ -224,7 +224,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right Side: Phone & Apply Now Pill (VIIV Exact Match) */}
+        {/* Right Side: Phone & Apply Now Pill */}
         <div
           style={{
             display: "flex",
@@ -235,7 +235,7 @@ export default function Navbar() {
         >
           {/* Phone Link on Single Line */}
           <a
-            href="tel:+918925991788"
+            href="tel:+918903390051"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -263,10 +263,10 @@ export default function Navbar() {
             >
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
-            <span>+91 89259 91788</span>
+            <span>+91 89033 90051 | +91 93637 93954</span>
           </a>
 
-          {/* Dark Navy Pill Button (VIIV Match: #1C283F with white text) */}
+          {/* Luxury Translucent Pill Button */}
           <Link
             href="/contact"
             style={{
@@ -368,7 +368,7 @@ export default function Navbar() {
             }}
           >
             <a
-              href="tel:+918925991788"
+              href="tel:+918903390051"
               style={{
                 fontSize: "0.92rem",
                 color: "#E5A93C",
@@ -379,7 +379,7 @@ export default function Navbar() {
                 gap: "8px",
               }}
             >
-              <span>📞 +91 89259 91788</span>
+              <span>📞 +91 89033 90051 | +91 93637 93954</span>
             </a>
             <Link
               href="/contact"

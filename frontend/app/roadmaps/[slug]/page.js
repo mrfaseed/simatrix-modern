@@ -30,7 +30,7 @@ export default async function RoadmapDetailPage({ params }) {
         <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "20px" }}>
           <Link href="/roadmaps" style={{ color: "var(--text-secondary)" }}>Roadmaps</Link>
           <span style={{ margin: "0 8px" }}>/</span>
-          <span style={{ color: "#fff" }}>{title}</span>
+          <span style={{ color: "var(--text-primary)" }}>{title}</span>
         </div>
 
         <div className="section-header" style={{ textAlign: "left", margin: "0 0 40px 0" }}>
@@ -51,12 +51,12 @@ export default async function RoadmapDetailPage({ params }) {
                   fontWeight: 800,
                   padding: "6px 12px",
                   borderRadius: "8px",
-                  background: "rgba(99, 102, 241, 0.2)",
-                  color: "#a5b4fc",
+                  background: "var(--vil-gold-bg)",
+                  color: "var(--vil-gold-dim)",
                 }}>
                   {step.num}
                 </span>
-                <h3 style={{ fontSize: "1.2rem", color: "#fff" }}>{step.title}</h3>
+                <h3 style={{ fontSize: "1.2rem", color: "var(--text-primary)" }}>{step.title}</h3>
               </div>
               <ul style={{ paddingLeft: "24px", display: "flex", flexDirection: "column", gap: "6px", color: "var(--text-secondary)", fontSize: "0.9rem" }}>
                 {step.items.map((i) => (

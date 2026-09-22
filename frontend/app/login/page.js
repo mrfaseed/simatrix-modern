@@ -1,10 +1,18 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Card from "@/components/common/Card";
 import Button from "@/components/common/Button";
 
 export default function LoginPage() {
+  const router = useRouter();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push("/dashboard");
+  };
+
   return (
     <div className="section" style={{ minHeight: "80vh", display: "flex", alignItems: "center" }}>
       <div className="container" style={{ maxWidth: "460px" }}>
@@ -16,12 +24,13 @@ export default function LoginPage() {
             </p>
           </div>
 
-          <form onSubmit={(e) => { e.preventDefault(); window.location.href = "/dashboard"; }} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             <div>
-              <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
+              <label htmlFor="loginEmailInput" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
                 Email Address
               </label>
               <input
+                id="loginEmailInput"
                 type="email"
                 defaultValue="sakthi@simatrix.app"
                 required
@@ -30,10 +39,11 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
+              <label htmlFor="loginPasswordInput" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
                 Password
               </label>
               <input
+                id="loginPasswordInput"
                 type="password"
                 defaultValue="password123"
                 required

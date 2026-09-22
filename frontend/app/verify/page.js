@@ -34,11 +34,12 @@ export default function VerifySearchPage() {
 
         <Card style={{ padding: "36px" }}>
           <form onSubmit={handleVerify}>
-            <label style={{ display: "block", fontSize: "0.9rem", fontWeight: 700, color: "#fff", marginBottom: "10px" }}>
+            <label htmlFor="verifyCertInput" style={{ display: "block", fontSize: "0.9rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "10px" }}>
               Enter Certificate ID
             </label>
             <div style={{ display: "flex", gap: "12px", marginBottom: "16px" }}>
               <input
+                id="verifyCertInput"
                 type="text"
                 placeholder="e.g. SIM-2026-FSD-000142"
                 value={certId}
@@ -48,9 +49,9 @@ export default function VerifySearchPage() {
                   flexGrow: 1,
                   padding: "14px 18px",
                   borderRadius: "var(--radius-md)",
-                  background: "rgba(255, 255, 255, 0.04)",
+                  background: "var(--bg-subtle)",
                   border: "1px solid var(--border-focus)",
-                  color: "#fff",
+                  color: "var(--text-primary)",
                   fontSize: "1rem",
                   fontFamily: "var(--font-mono)",
                   outline: "none",
