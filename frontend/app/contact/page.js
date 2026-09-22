@@ -26,7 +26,7 @@ export default function ContactPage() {
           {!submitted ? (
             <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               <div>
-                <label htmlFor="contactFullName" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
+                <label htmlFor="contactFullName" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "6px" }}>
                   Your Full Name
                 </label>
                 <input
@@ -34,12 +34,12 @@ export default function ContactPage() {
                   type="text"
                   required
                   placeholder="e.g. Sakthi Kumar"
-                  style={{ width: "100%", padding: "12px 16px", borderRadius: "var(--radius-sm)", background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-subtle)", color: "#fff", outline: "none" }}
+                  style={{ width: "100%", padding: "12px 16px", borderRadius: "var(--radius-sm)", background: "var(--bg-main)", border: "1px solid var(--border-subtle)", color: "var(--text-primary)", outline: "none" }}
                 />
               </div>
 
               <div>
-                <label htmlFor="contactPhone" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
+                <label htmlFor="contactPhone" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "6px" }}>
                   Phone Number
                 </label>
                 <input
@@ -47,15 +47,15 @@ export default function ContactPage() {
                   type="tel"
                   required
                   placeholder="+91 89033 90051"
-                  style={{ width: "100%", padding: "12px 16px", borderRadius: "var(--radius-sm)", background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-subtle)", color: "#fff", outline: "none" }}
+                  style={{ width: "100%", padding: "12px 16px", borderRadius: "var(--radius-sm)", background: "var(--bg-main)", border: "1px solid var(--border-subtle)", color: "var(--text-primary)", outline: "none" }}
                 />
               </div>
 
               <div>
-                <label htmlFor="contactProgram" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#fff", marginBottom: "6px" }}>
+                <label htmlFor="contactProgram" style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "6px" }}>
                   Program of Interest
                 </label>
-                <select id="contactProgram" style={{ width: "100%", padding: "12px 16px", borderRadius: "var(--radius-sm)", background: "#131924", border: "1px solid var(--border-subtle)", color: "#fff", outline: "none" }}>
+                <select id="contactProgram" style={{ width: "100%", padding: "12px 16px", borderRadius: "var(--radius-sm)", background: "var(--bg-main)", border: "1px solid var(--border-subtle)", color: "var(--text-primary)", outline: "none" }}>
                   <option>Full Stack Development Career Program</option>
                   <option>Data Analytics Masterclass</option>
                   <option>Data Science & AI Program</option>

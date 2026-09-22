@@ -1,0 +1,113 @@
+/* ==========================================================================
+   SIMATRIX ACADEMY - SEMANTIC COLOR SYSTEM
+   ==========================================================================
+   All color tokens are purpose-based (semantic), never named after specific colors.
+   To change or rebrand the palette, modify ONLY the color values below.
+   No components or variable names will ever need to change.
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     1. PRIMARY & BRAND ACTIONS
+     ------------------------------------------------------------------------ */
+  --color-primary:             #0B1320;        /* Main brand tone & primary buttons */
+  --color-primary-hover:       #152238;        /* Hover / active state for primary actions */
+  --color-primary-card:        #101B2B;        /* Dark contrast card surface */
+  --color-primary-contrast:    #FFFFFF;        /* Text / foreground on primary surfaces */
+
+  /* ------------------------------------------------------------------------
+     2. ACCENT & HIGHLIGHTS
+     ------------------------------------------------------------------------ */
+  --color-accent:              #C99738;        /* Core accent (brand highlight) */
+  --color-accent-hover:        #E0B354;        /* Bright accent for hover states */
+  --color-accent-muted:        #966C1E;        /* Deeper accent for contrast text/badges */
+  --color-accent-subtle:       rgba(201, 151, 56, 0.12); /* Subtle accent background tint */
+  --color-accent-border:       rgba(201, 151, 56, 0.35); /* Subtle accent border tint */
+  --color-accent-contrast:     #0B1320;        /* High-contrast text on accent surfaces */
+
+  /* ------------------------------------------------------------------------
+     3. BACKGROUNDS & SURFACES
+     ------------------------------------------------------------------------ */
+  --color-background:          #FAF8F5;        /* Global main page background */
+  --color-surface:             #FFFFFF;        /* Content cards, inputs, navbar surface */
+  --color-surface-elevated:    #FFFFFF;        /* Dropdowns, modals, floating panels */
+  --color-surface-subtle:      #F4EFE6;        /* Subtle section background */
+
+  /* ------------------------------------------------------------------------
+     4. TYPOGRAPHY & TEXT
+     ------------------------------------------------------------------------ */
+  --color-text-primary:        #0B1320;        /* Headings & primary body copy */
+  --color-text-secondary:      #475467;        /* Subtitles, descriptions, supporting copy */
+  --color-text-muted:          #667085;        /* Captions, metadata, helper text */
+  --color-text-soft:           #858E9E;        /* Faint labels & placeholders */
+  --color-text-inverse:        #FFFFFF;        /* High-contrast text on dark backgrounds */
+  --color-text-accent:         var(--color-accent); /* Highlighted accent text */
+
+  /* ------------------------------------------------------------------------
+     5. BORDERS & DIVIDERS
+     ------------------------------------------------------------------------ */
+  --color-border:              #E8E2D5;        /* Default card borders & dividers */
+  --color-border-strong:       #D1C9BA;        /* Prominent borders */
+  --color-border-focus:        var(--color-accent); /* Focus ring on interactive inputs */
+  --color-border-glow:         rgba(201, 151, 56, 0.3); /* Subtle accent glow */
+
+  /* ------------------------------------------------------------------------
+     6. STATUS & FEEDBACK
+     ------------------------------------------------------------------------ */
+  --color-success:             #059669;        /* Completed, verified, passing */
+  --color-warning:             #D97706;        /* Badges, pending, cautions */
+  --color-error:               #DC2626;        /* Errors, destructive actions */
+  --color-info:                #0284C7;        /* Informational links & highlights */
+
+  /* ------------------------------------------------------------------------
+     7. GRADIENTS (Composed from semantic tokens)
+     ------------------------------------------------------------------------ */
+  --grad-primary:              linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 60%, var(--color-accent) 100%);
+  --grad-accent:               linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 50%, #B38228 100%);
+  --grad-accent-text:          linear-gradient(135deg, var(--color-accent-muted) 0%, var(--color-accent) 50%, #D4AF37 100%);
+  --grad-surface:              linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
+  --grad-hero:                 radial-gradient(ellipse 80% 50% at 50% -10%, var(--color-accent-subtle) 0%, rgba(250, 248, 245, 0) 70%);
+
+  /* ------------------------------------------------------------------------
+     8. COMPATIBILITY MAPPINGS
+     (Ensures all existing CSS utility classes continue working seamlessly)
+     ------------------------------------------------------------------------ */
+  --bg-main:                   var(--color-background);
+  --bg-surface:                var(--color-surface);
+  --bg-surface-elevated:       var(--color-surface-elevated);
+  --bg-card:                   var(--color-surface);
+  --bg-subtle:                 var(--color-surface-subtle);
+
+  --text-primary:              var(--color-text-primary);
+  --text-secondary:            var(--color-text-secondary);
+  --text-muted:                var(--color-text-muted);
+  --text-soft:                 var(--color-text-soft);
+  --text-inverse:              var(--color-text-inverse);
+
+  --border-subtle:             var(--color-border);
+  --border-strong:             var(--color-border-strong);
+  --border-focus:              var(--color-border-focus);
+  --border-glow:               var(--color-border-glow);
+
+  --primary:                   var(--color-primary);
+  --primary-hover:             var(--color-primary-hover);
+  --accent-cyan:               var(--color-info);
+  --accent-emerald:            var(--color-success);
+  --accent-amber:              var(--color-warning);
+
+  --grad-gold:                 var(--grad-accent);
+  --grad-gold-text:            var(--grad-accent-text);
+
+  /* Legacy class aliases */
+  --vil-navy:                  var(--color-primary);
+  --vil-navy-light:            var(--color-primary-hover);
+  --vil-navy-card:             var(--color-primary-card);
+  --vil-gold:                  var(--color-accent);
+  --vil-gold-light:            var(--color-accent-hover);
+  --vil-gold-dim:              var(--color-accent-muted);
+  --vil-gold-bg:               var(--color-accent-subtle);
+  --vil-gold-border:           var(--color-accent-border);
+  --vil-ivory:                 var(--color-background);
+  --vil-ivory-light:           var(--color-background);
+  --vil-surface:               var(--color-surface);
+}

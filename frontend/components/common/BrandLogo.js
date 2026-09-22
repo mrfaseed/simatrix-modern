@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function BrandLogo({ variant = "light" }) {
   const isLight = variant === "light";
-  const textColor = isLight ? "#FFFFFF" : "#0B1320";
-  const crestColor = isLight ? "#FFFFFF" : "#0B1320";
-  const goldColor = "#E5A93C";
+  const textColor = isLight ? "var(--color-text-inverse)" : "var(--color-text-primary)";
+  const crestColor = isLight ? "var(--color-text-inverse)" : "var(--color-primary)";
+  const accentColor = "var(--color-accent)";
 
   return (
     <Link
@@ -40,7 +40,7 @@ export default function BrandLogo({ variant = "light" }) {
             cx="50"
             cy="50"
             r="46"
-            stroke={isLight ? "rgba(229, 169, 60, 0.25)" : "rgba(11, 19, 32, 0.15)"}
+            stroke={isLight ? "var(--color-accent-border)" : "var(--color-border)"}
             strokeWidth="1"
             strokeDasharray="2 3"
           />
@@ -104,7 +104,7 @@ export default function BrandLogo({ variant = "light" }) {
             fontSize: "0.58rem",
             fontWeight: 700,
             letterSpacing: "0.36em",
-            color: goldColor,
+            color: accentColor,
             textTransform: "uppercase",
             marginTop: "3px",
           }}

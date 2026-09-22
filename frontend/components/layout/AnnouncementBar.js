@@ -7,8 +7,8 @@ export default function AnnouncementBar() {
     <aside
       aria-label="Admissions Announcement"
       style={{
-        background: "#F5A623",
-        color: "#0B1320",
+        background: "var(--color-accent-hover)",
+        color: "var(--color-accent-contrast)",
         padding: "8px 24px",
         fontSize: "0.82rem",
         fontWeight: 700,
@@ -30,8 +30,8 @@ export default function AnnouncementBar() {
         style={{
           display: "inline-flex",
           alignItems: "center",
-          background: "#0B1320",
-          color: "#FAF8F5",
+          background: "var(--color-primary)",
+          color: "var(--color-primary-contrast)",
           padding: "3px 14px",
           borderRadius: "999px",
           fontSize: "0.74rem",
@@ -43,11 +43,11 @@ export default function AnnouncementBar() {
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "scale(1.04)";
-          e.currentTarget.style.background = "#1C283F";
+          e.currentTarget.style.background = "var(--color-primary-hover)";
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = "scale(1)";
-          e.currentTarget.style.background = "#0B1320";
+          e.currentTarget.style.background = "var(--color-primary)";
         }}
       >
         <span>Apply Now</span>
