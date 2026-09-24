@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE_CONFIG, FOOTER_LINKS } from "@/lib/constants";
+import BrandLogo from "@/components/common/BrandLogo";
 
 export default function Footer() {
   return (
@@ -19,24 +20,9 @@ export default function Footer() {
         }}>
           {/* Brand Info */}
           <div>
-            <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
-              <div style={{
-                width: "32px",
-                height: "32px",
-                borderRadius: "8px",
-                background: "var(--grad-primary)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: 900,
-                color: "#ffffff",
-              }}>
-                S
-              </div>
-              <span style={{ fontWeight: 800, fontSize: "1.1rem", color: "var(--text-primary)" }}>
-                SIMATRIX ACADEMY
-              </span>
-            </Link>
+            <div style={{ marginBottom: "16px" }}>
+              <BrandLogo variant="dark" height={32} />
+            </div>
             <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)", marginBottom: "20px", lineHeight: 1.6 }}>
               {SITE_CONFIG.tagline}
             </p>

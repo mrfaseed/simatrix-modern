@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 40" width="150" height="40">
+  <text x="0" y="27" fill="#0071CE" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="23">Walmart</text>
+  <g transform="translate(104, 8) scale(1.2)">
+    <path fill="#FFC220" d="M12 2a1.2 1.2 0 00-1.2 1.2v3.6a1.2 1.2 0 002.4 0V3.2A1.2 1.2 0 0012 2zM5.3 5.3a1.2 1.2 0 00-1.7 1.7l2.6 2.6a1.2 1.2 0 001.7-1.7L5.3 5.3zm13.4 0l-2.6 2.6a1.2 1.2 0 001.7 1.7l2.6-2.6a1.2 1.2 0 00-1.7-1.7zM12 14.8a1.2 1.2 0 00-1.2 1.2v3.6a1.2 1.2 0 002.4 0V16a1.2 1.2 0 00-1.2-1.2zm-4.1-3.1l-2.6 2.6a1.2 1.2 0 001.7 1.7l2.6-2.6a1.2 1.2 0 00-1.7-1.7zm8.2 0a1.2 1.2 0 00-1.7 1.7l2.6 2.6a1.2 1.2 0 001.7-1.7l-2.6-2.6z"/>
+  </g>
+</svg>
