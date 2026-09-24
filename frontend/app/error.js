@@ -7,7 +7,7 @@ export default function Error({ error, reset }) {
     <div className="section" style={{ minHeight: "70vh", display: "flex", alignItems: "center", textAlign: "center" }}>
       <div className="container" style={{ maxWidth: "600px" }}>
         <div style={{ fontSize: "4rem", marginBottom: "16px" }}>⚠️</div>
-        <h1 style={{ fontSize: "2rem", color: "#fff", marginBottom: "12px" }}>Something went wrong!</h1>
+        <h1 style={{ fontSize: "2rem", color: "var(--text-primary)", marginBottom: "12px" }}>Something went wrong!</h1>
         <p style={{ color: "var(--text-secondary)", marginBottom: "28px" }}>
           {error?.message || "An unexpected error occurred in the execution sandbox."}
         </p>
