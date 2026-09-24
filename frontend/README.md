@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Simatrix Academy
+
+Premium tech education platform — **Learn. Practice. Build. Get Career Ready.**
+
+Simatrix Academy replaces passive video lectures with an active pipeline: live sessions, hands-on coding arenas (CodeArena, SQLLab, WebLab), real production projects, and verified student portfolios.
+
+## Tech Stack
+
+| Layer    | Tech                                   |
+| -------- | -------------------------------------- |
+| Frontend | Next.js 16, React 19, CSS Variables    |
+| Backend  | Node.js, Express                       |
+| Fonts    | Plus Jakarta Sans, JetBrains Mono      |
+| Design   | Custom semantic color token system     |
 
 ## Getting Started
 
-First, run the development server:
+### Frontend
 
 ```bash
+cd frontend
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Backend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+cd backend
+npm install
+npm run dev
+```
 
-## Learn More
+Runs on `http://localhost:5000` by default.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+frontend/
+├── app/              # Next.js App Router pages
+│   ├── colors.css    # Semantic color token system
+│   ├── globals.css   # Global styles and utilities
+│   ├── layout.js     # Root layout with navbar, footer
+│   ├── page.js       # Homepage
+│   ├── about/        # About page
+│   ├── courses/      # Course listings
+│   ├── practice/     # CodeArena / practice tools
+│   ├── programs/     # Flagship program pages
+│   ├── profile/      # Student portfolio profiles
+│   ├── verify/       # Credential verification
+│   └── ...
+├── components/
+│   ├── common/       # Reusable UI (Button, Badge, Card)
+│   ├── home/         # Homepage sections (Hero, Pillars, etc.)
+│   └── layout/       # Navbar, Footer, AnnouncementBar
+└── lib/              # Utilities and helpers
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+backend/
+└── src/
+    └── server.js     # Express API server
+```
 
-## Deploy on Vercel
+## Color System
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All design tokens live in `frontend/app/colors.css`. The system uses semantic variable names so you change values without renaming anything across the codebase. See the file header comments for the full token map.
