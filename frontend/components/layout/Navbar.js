@@ -163,7 +163,7 @@ export default function Navbar() {
                     style={{
                       fontSize: "0.68rem",
                       fontWeight: 700,
-                      color: "#E5A93C",
+                      color: "var(--color-accent)",
                       textTransform: "uppercase",
                       letterSpacing: "0.18em",
                       padding: "4px 8px 10px 8px",
@@ -195,13 +195,13 @@ export default function Navbar() {
                           width: "28px",
                           height: "28px",
                           borderRadius: "8px",
-                          background: "rgba(229, 169, 60, 0.15)",
-                          border: "1px solid rgba(229, 169, 60, 0.3)",
+                          background: "var(--color-accent-subtle)",
+                          border: "1px solid var(--color-accent-border)",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
                           fontSize: "0.78rem",
-                          color: "#E5A93C",
+                          color: "var(--color-accent)",
                           fontWeight: 700,
                           flexShrink: 0,
                         }}
@@ -259,7 +259,7 @@ export default function Navbar() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              style={{ color: "#E5A93C" }}
+              style={{ color: "var(--color-accent)" }}
             >
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
@@ -371,7 +371,7 @@ export default function Navbar() {
               href="tel:+918903390051"
               style={{
                 fontSize: "0.92rem",
-                color: "#E5A93C",
+                color: "var(--color-accent)",
                 fontWeight: 600,
                 textDecoration: "none",
                 display: "flex",

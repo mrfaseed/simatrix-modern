@@ -371,8 +371,8 @@ input:focus, textarea:focus, select:focus {
   width: 16px;
   height: 2px;
   border-radius: 999px;
-  background: #E5A93C;
-  box-shadow: 0 0 8px rgba(229, 169, 60, 0.8);
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-border-glow);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: center;
 }

@@ -146,7 +146,7 @@ export default function Hero() {
           left: 0,
           right: 0,
           height: "90px",
-          background: "linear-gradient(0deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)",
+          background: "linear-gradient(0deg, var(--color-background) 0%, rgba(255, 255, 255, 0) 100%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
@@ -194,7 +194,7 @@ export default function Hero() {
                   fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
                 }}
               >
-                {/* Circular Icon with Glowing Gold Ring on Active */}
+                {/* Circular Icon with Glowing Ring on Active */}
                 <div
                   style={{
                     width: "28px",
@@ -203,10 +203,10 @@ export default function Hero() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: isActive ? "rgba(229, 169, 60, 0.16)" : "rgba(255, 255, 255, 0.06)",
-                    border: isActive ? "1.8px solid #E5A93C" : "1px solid rgba(255, 255, 255, 0.18)",
-                    color: isActive ? "#E5A93C" : "rgba(255, 255, 255, 0.65)",
-                    boxShadow: isActive ? "0 0 14px rgba(229, 169, 60, 0.5)" : "none",
+                    background: isActive ? "var(--color-hero-tab-active-bg)" : "rgba(255, 255, 255, 0.06)",
+                    border: isActive ? "1.8px solid var(--color-hero-tab-active)" : "1px solid rgba(255, 255, 255, 0.18)",
+                    color: isActive ? "var(--color-hero-tab-active)" : "rgba(255, 255, 255, 0.65)",
+                    boxShadow: isActive ? "0 0 14px var(--color-hero-tab-glow)" : "none",
                     transition: "all 0.2s ease",
                   }}
                 >
@@ -224,12 +224,12 @@ export default function Hero() {
         {/* Hero Left Content Column */}
         <div style={{ maxWidth: "660px" }}>
           
-          {/* Gold Scholarship Badge (Refined Pill) */}
+          {/* Scholarship Badge (Refined Pill) */}
           <div
             style={{
               display: "inline-block",
-              background: "#E5A93C",
-              color: "#0B1320",
+              background: "var(--color-hero-badge-bg)",
+              color: "var(--color-hero-badge-text)",
               padding: "6px 14px",
               borderRadius: "4px",
               fontSize: "0.74rem",
@@ -237,7 +237,7 @@ export default function Hero() {
               letterSpacing: "0.1em",
               textTransform: "uppercase",
               marginBottom: "24px",
-              boxShadow: "0 4px 14px rgba(229, 169, 60, 0.3)",
+              boxShadow: "0 4px 14px var(--color-hero-badge-glow)",
               fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
             }}
           >
@@ -285,70 +285,70 @@ export default function Hero() {
               flexWrap: "wrap",
             }}
           >
-            {/* Primary Gold Pill Button */}
+            {/* Primary Pill Button */}
             <Link
               href={current.primaryHref}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "8px",
-                background: "#E5A93C",
-                color: "#0B1320",
+                background: "var(--color-hero-btn-primary-bg)",
+                color: "var(--color-hero-btn-primary-text)",
                 padding: "13px 28px",
                 borderRadius: "999px",
                 fontSize: "0.92rem",
                 fontWeight: 700,
                 letterSpacing: "0.01em",
                 textDecoration: "none",
-                boxShadow: "0 4px 18px rgba(229, 169, 60, 0.35)",
+                boxShadow: "0 4px 18px var(--color-hero-btn-primary-glow)",
                 transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
                 fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 6px 24px rgba(229, 169, 60, 0.5)";
+                e.currentTarget.style.boxShadow = "0 6px 24px var(--color-hero-btn-primary-glow)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 4px 18px rgba(229, 169, 60, 0.35)";
+                e.currentTarget.style.boxShadow = "0 4px 18px var(--color-hero-btn-primary-glow)";
               }}
             >
-              <span style={{ fontSize: "0.65rem", color: "#0B1320" }}>●</span>
+              <span style={{ fontSize: "0.65rem", color: "var(--color-hero-btn-primary-text)" }}>●</span>
               <span>{current.primaryText}</span>
             </Link>
 
-            {/* Secondary Dark Navy/Glass Pill Button */}
+            {/* Secondary Pill Button */}
             <Link
               href={current.secondaryHref}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "8px",
-                background: "#1C283F",
-                color: "#FAF8F5",
+                background: "var(--color-hero-btn-secondary-bg)",
+                color: "var(--color-hero-btn-secondary-text)",
                 padding: "13px 28px",
                 borderRadius: "999px",
                 fontSize: "0.92rem",
                 fontWeight: 600,
                 letterSpacing: "0.01em",
                 textDecoration: "none",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
+                border: "1px solid var(--color-hero-btn-secondary-border)",
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.25)",
                 transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
                 fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.16)";
+                e.currentTarget.style.background = "var(--color-hero-btn-secondary-hover)";
                 e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.4)";
                 e.currentTarget.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#1C283F";
+                e.currentTarget.style.background = "var(--color-hero-btn-secondary-bg)";
                 e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              <span style={{ fontSize: "0.65rem", color: "#E5A93C" }}>●</span>
+              <span style={{ fontSize: "0.65rem", color: "var(--color-hero-btn-secondary-dot)" }}>●</span>
               <span>{current.secondaryText}</span>
             </Link>
           </div>
