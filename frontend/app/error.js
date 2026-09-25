@@ -12,7 +12,7 @@ export default function Error({ error, reset }) {
           {error?.message || "An unexpected error occurred in the execution sandbox."}
         </p>
         <Button onClick={() => reset()} variant="primary" size="lg">
-          Try Again
+          Try Again        
         </Button>
       </div>
     </div>

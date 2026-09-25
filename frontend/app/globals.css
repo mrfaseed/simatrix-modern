@@ -192,15 +192,15 @@ p {
 
 .btn-gold {
   background: var(--vil-gold);
-  color: var(--vil-navy) !important;
+  color: #FFFFFF !important;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(201, 151, 56, 0.25);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
 }
 
 .btn-gold:hover {
   background: var(--vil-gold-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(201, 151, 56, 0.35);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
 }
 
 .btn-secondary {
@@ -225,6 +225,99 @@ p {
 .btn-lg {
   padding: 15px 32px;
   font-size: 1.02rem;
+}
+
+/* Executive CTA Section Buttons */
+.cta-btn-white {
+  background: #FFFFFF !important;
+  color: #0B1936 !important;
+  border-radius: 999px;
+  padding: 15px 36px;
+  font-weight: 800;
+  font-size: 0.98rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18), 0 0 25px rgba(255, 255, 255, 0.28);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+}
+
+.cta-btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.26), 0 0 35px rgba(255, 255, 255, 0.45);
+  background: #F8FAFC !important;
+}
+
+.cta-btn-glass {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+  padding: 15px 32px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-btn-glass:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+/* Light Theme CTA Buttons matching exact design */
+.cta-btn-primary-blue {
+  background: #0052FF !important;
+  color: #FFFFFF !important;
+  border-radius: 999px;
+  padding: 14px 34px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 82, 255, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+}
+
+.cta-btn-primary-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 82, 255, 0.45);
+  background: #0045D8 !important;
+}
+
+.cta-btn-outline-blue {
+  background: #F0F6FF !important;
+  color: #0F172A !important;
+  border: 1.5px solid #2563EB;
+  border-radius: 999px;
+  padding: 14px 30px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 82, 255, 0.06);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-btn-outline-blue:hover {
+  transform: translateY(-2px);
+  background: #E2EEFF !important;
+  border-color: #0052FF;
+  box-shadow: 0 4px 14px rgba(0, 82, 255, 0.12);
 }
 
 /* Glass & Card Surfaces */
