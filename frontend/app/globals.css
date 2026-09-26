@@ -491,3 +491,18 @@ input:focus, textarea:focus, select:focus {
     transform: translateY(0);
   }
 }
+
+/* Portfolio Spotlight Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
