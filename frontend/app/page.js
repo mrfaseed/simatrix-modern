@@ -3,7 +3,6 @@ import Hero from "@/components/home/Hero";
 import PartnersBar from "@/components/home/PartnersBar";
 import PillarCard from "@/components/home/PillarCard";
 import FlagshipPrograms from "@/components/home/FlagshipPrograms";
-import PracticeTeaser from "@/components/home/PracticeTeaser";
 import BuildSection from "@/components/home/BuildSection";
 import MentorsSection from "@/components/home/MentorsSection";
 import WorkshopBanner from "@/components/home/WorkshopBanner";
@@ -22,64 +21,10 @@ export default function Home() {
       {/* 3. Flagship Career Programs Section */}
       <FlagshipPrograms />
 
-      {/* 4. Four Pillars Ecosystem Section (The Simatrix Model) */}
-      <section className="section" style={{ paddingTop: "40px", background: "var(--vil-ivory)" }}>
-        <div className="container">
-          <div className="section-header">
-            <div className="section-badge">The Simatrix Standard</div>
-            <h2 className="section-title">
-              A 4-Step Ecosystem to <span className="gradient-gold-text">Launch Your Career</span>
-            </h2>
-            <p className="section-desc">
-              We replaced passive video lectures with an active pipeline designed for tangible competency, verified code, and recruiter confidence.
-            </p>
-          </div>
+      {/* 4. Simatrix Career Pipeline Section */}
+      <PillarCard />
 
-          <div className="grid-4">
-            <PillarCard
-              number="01"
-              title="LEARN"
-              icon="📚"
-              color="11, 19, 32"
-              description="Master modern full stack engineering, data analytics, and generative AI with comprehensive live sessions and self-paced deep dives."
-              linkText="Explore Programs"
-              href="/programs"
-            />
-            <PillarCard
-              number="02"
-              title="PRACTICE"
-              icon="⚡"
-              color="201, 151, 56"
-              description="Daily hands-on drills in CodeArena, WebLab, and SQLLab with automated test assertions and instant execution feedback."
-              linkText="Enter CodeArena"
-              href="/practice"
-            />
-            <PillarCard
-              number="03"
-              title="BUILD"
-              icon="🛠️"
-              color="5, 150, 105"
-              description="Build real production specs. Commit clean git branches, receive practitioner code reviews, and compile real proof of work."
-              linkText="View Project Specs"
-              href="/build"
-            />
-            <PillarCard
-              number="04"
-              title="CAREER"
-              icon="🎯"
-              color="11, 19, 32"
-              description="Transform projects into recruiter-grade portfolios, pass mock technical screens, and unlock 150+ direct hiring referrals."
-              linkText="Career Launchpad"
-              href="/career"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Interactive Practice Sandbox (CodeArena Preview) */}
-      <PracticeTeaser />
-
-      {/* 6. Build & Proof of Work Section */}
+      {/* 5. Build & Proof of Work Section */}
       <BuildSection />
 
       {/* 7. Practitioner Faculty & Mentors Section */}
