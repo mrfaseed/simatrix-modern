@@ -1,0 +1,115 @@
+name: Deploy Beta to Hostinger
+
+on:
+  push:
+    branches:
+      - beta
+  workflow_dispatch:
+
+concurrency:
+  group: hostinger-beta-deployment
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Build & Verify Beta (CI)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
+
+      - name: Install Dependencies
+        run: |
+          npm --prefix backend install --omit=dev
+          npm --prefix frontend install
+
+      - name: Build Next.js Application
+        run: |
+          npm --prefix frontend run build
+          node scripts/copy-standalone-assets.js
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL_BETA || 'https://beta.simatrixacademy.com' }}
+
+  deploy:
+    name: Deploy to Hostinger Beta via SSH
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Hostinger Beta Server Update
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.HOSTINGER_SSH_HOST }}
+          username: ${{ secrets.HOSTINGER_SSH_USER }}
+          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: ${{ secrets.HOSTINGER_SSH_PORT || 65002 }}
+          script_stop: true
+          script: |
+            echo "=== Starting Hostinger Beta Deployment ==="
+            
+            # Load NVM and custom Node/PM2 paths if available
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            export PATH="$HOME/.npm-global/bin:$PATH"
+            echo "Node version: $(node -v 2>/dev/null || echo 'not found')"
+            echo "NPM version: $(npm -v 2>/dev/null || echo 'not found')"
+            
+            # Target directory for beta subdomain
+            TARGET_DIR="${{ secrets.HOSTINGER_TARGET_DIR_BETA || '~/domains/simatrixacademy.com/public_html/beta' }}"
+            if [ ! -d "$TARGET_DIR" ]; then
+              echo "Creating beta directory: $TARGET_DIR"
+              mkdir -p "$TARGET_DIR"
+            fi
+            cd "$TARGET_DIR" || exit 1
+            echo "Working directory: $(pwd)"
+            
+            # If repo not cloned in beta folder, clone it
+            if [ ! -d ".git" ]; then
+              echo "Cloning repository into beta folder..."
+              git clone https://github.com/mrfaseed/simatrix-modern.git .
+            fi
+            
+            # Fetch and checkout beta branch (or main if deploying main to beta)
+            echo "Pulling latest changes..."
+            git fetch --all
+            # If beta branch exists on remote, use it; otherwise use main
+            if git show-ref --quiet refs/remotes/origin/beta; then
+              git checkout beta
+              git reset --hard origin/beta
+            else
+              git checkout main
+              git reset --hard origin/main
+            fi
+            
+            # Install production dependencies
+            echo "Installing production dependencies..."
+            npm install --omit=dev
+            npm --prefix backend install --omit=dev
+            npm --prefix frontend install
+            
+            # Build Next.js application
+            echo "Building application for Beta..."
+            NEXT_PUBLIC_APP_URL="${{ secrets.NEXT_PUBLIC_APP_URL_BETA || 'https://beta.simatrixacademy.com' }}" npm --prefix frontend run build
+            node scripts/copy-standalone-assets.js
+            
+            # Start or restart beta PM2 process on separate ports (3001 / 5001)
+            echo "Reloading Beta PM2 process..."
+            if command -v pm2 > /dev/null 2>&1; then
+              PORT=3001 BACKEND_PORT=5001 pm2 restart simatrix-beta || PORT=3001 BACKEND_PORT=5001 pm2 start server.js --name simatrix-beta
+              pm2 save
+            elif command -v npx > /dev/null 2>&1; then
+              PORT=3001 BACKEND_PORT=5001 npx pm2 restart simatrix-beta || PORT=3001 BACKEND_PORT=5001 npx pm2 start server.js --name simatrix-beta
+              npx pm2 save
+            fi
+            
+            echo "=== Hostinger Beta Deployment Completed Successfully ==="

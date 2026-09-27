@@ -1,0 +1,108 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: hostinger-production-deployment
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Build & Verify (CI)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
+
+      - name: Install Dependencies
+        run: |
+          echo "Installing backend dependencies..."
+          npm --prefix backend install --omit=dev
+          echo "Installing frontend dependencies..."
+          npm --prefix frontend install
+
+      - name: Build Next.js Application
+        run: |
+          echo "Building Next.js for production..."
+          npm --prefix frontend run build
+          node scripts/copy-standalone-assets.js
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL || 'http://localhost:3000' }}
+
+  deploy:
+    name: Deploy to Hostinger via SSH
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Trigger Hostinger Server Update
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.HOSTINGER_SSH_HOST }}
+          username: ${{ secrets.HOSTINGER_SSH_USER }}
+          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: ${{ secrets.HOSTINGER_SSH_PORT || 65002 }}
+          script_stop: true
+          script: |
+            echo "=== Starting Hostinger Deployment ==="
+            
+            # Load NVM and custom Node/PM2 paths if available
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            export PATH="$HOME/.npm-global/bin:$PATH"
+            echo "Node version: $(node -v 2>/dev/null || echo 'not found')"
+            echo "NPM version: $(npm -v 2>/dev/null || echo 'not found')"
+            
+            # Navigate to application directory
+            TARGET_DIR="${{ secrets.HOSTINGER_TARGET_DIR || '~/domains/yourdomain.com/public_html' }}"
+            if [ ! -d "$TARGET_DIR" ]; then
+              echo "Target directory $TARGET_DIR does not exist. Trying ~/simatrix or current dir..."
+              TARGET_DIR="."
+            fi
+            cd "$TARGET_DIR" || exit 1
+            echo "Working directory: $(pwd)"
+            
+            # Pull latest changes from GitHub
+            echo "Fetching latest changes from main branch..."
+            git fetch --all
+            git reset --hard origin/main
+            
+            # Install production dependencies
+            echo "Installing production dependencies..."
+            npm install --omit=dev
+            npm --prefix backend install --omit=dev
+            npm --prefix frontend install
+            
+            # Build Next.js application
+            echo "Building application..."
+            npm --prefix frontend run build
+            node scripts/copy-standalone-assets.js
+            
+            # Restart process with PM2
+            echo "Restarting application processes..."
+            if command -v pm2 > /dev/null 2>&1; then
+              pm2 restart ecosystem.config.js || pm2 start ecosystem.config.js
+              pm2 save
+            elif command -v npx > /dev/null 2>&1; then
+              npx pm2 restart ecosystem.config.js || npx pm2 start ecosystem.config.js
+              npx pm2 save
+            else
+              echo "Notice: PM2 not found. If using Hostinger hPanel Node.js manager, restart it from the hPanel dashboard."
+            fi
+            
+            echo "=== Hostinger Deployment Finished Successfully ==="

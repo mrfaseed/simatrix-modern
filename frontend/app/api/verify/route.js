@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { SAMPLE_CERTIFICATES } from "@/lib/data/certificates";
 
 const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:5000";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.APP_URL || "http://localhost:3000";
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
@@ -44,7 +45,7 @@ export async function GET(request) {
         skillsVerified: ["React.js", "Node.js", "PostgreSQL", "System Design"],
         capstoneProject: "Verified Production Capstone",
         issuer: "Simatrix Academy Academic Council",
-        verificationUrl: `http://localhost:3000/verify/${formattedId}`,
+        verificationUrl: `${APP_URL}/verify/${formattedId}`,
       };
       SAMPLE_CERTIFICATES[formattedId] = dynamicCert;
       return NextResponse.json({ verified: true, certificate: dynamicCert });
@@ -72,7 +73,7 @@ export async function POST(request) {
       skillsVerified: ["Full Stack Engineering", "Database Systems", "Cloud Deployment"],
       capstoneProject: "Verified Production Project",
       issuer: "Simatrix Academy Academic Council",
-      verificationUrl: `http://localhost:3000/verify/${formattedId}`,
+      verificationUrl: `${APP_URL}/verify/${formattedId}`,
     };
     SAMPLE_CERTIFICATES[formattedId] = newCert;
 

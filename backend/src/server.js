@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.BACKEND_PORT || 5000;
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.APP_URL || 'http://localhost:3000';
 
 app.use(cors());
 app.use(express.json());
@@ -21,7 +22,7 @@ const certificatesStore = new Map([
       skillsVerified: ['React.js', 'Node.js', 'PostgreSQL', 'REST APIs', 'Git/GitHub', 'Docker Basics'],
       capstoneProject: 'Production E-Commerce Platform with Cart & Auth',
       issuer: 'Simatrix Academy Academic Council',
-      verificationUrl: 'http://localhost:3000/verify/SIM-2026-FSD-000142',
+      verificationUrl: `${APP_URL}/verify/SIM-2026-FSD-000142`,
     },
   ],
   [
@@ -36,7 +37,7 @@ const certificatesStore = new Map([
       skillsVerified: ['SQL', 'Power BI', 'Python Pandas', 'DAX Modeling', 'Excel Modeling'],
       capstoneProject: 'Executive Sales & Revenue Analytics Dashboard',
       issuer: 'Simatrix Academy Academic Council',
-      verificationUrl: 'http://localhost:3000/verify/SIM-2026-DA-000210',
+      verificationUrl: `${APP_URL}/verify/SIM-2026-DA-000210`,
     },
   ],
 ]);
@@ -65,7 +66,7 @@ app.get('/api/v1/certificates/:id', (req, res) => {
       skillsVerified: ['Full Stack Systems', 'Production Engineering', 'Git & GitHub'],
       capstoneProject: 'Verified Capstone Architecture',
       issuer: 'Simatrix Academy Academic Council',
-      verificationUrl: `http://localhost:3000/verify/${id}`,
+      verificationUrl: `${APP_URL}/verify/${id}`,
     };
     certificatesStore.set(id, cert);
     return res.json({ verified: true, certificate: cert });
@@ -90,7 +91,7 @@ app.post('/api/v1/certificates', (req, res) => {
     skillsVerified: ['Full Stack Systems', 'Database Architecture', 'Cloud Deployments'],
     capstoneProject: 'Verified Production Capstone',
     issuer: 'Simatrix Academy Academic Council',
-    verificationUrl: `http://localhost:3000/verify/${formattedId}`,
+    verificationUrl: `${APP_URL}/verify/${formattedId}`,
   };
 
   certificatesStore.set(formattedId, newCert);

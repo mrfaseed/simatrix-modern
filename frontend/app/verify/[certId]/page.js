@@ -33,6 +33,7 @@ export default async function CertificateResultPage({ params }) {
 
   // Fallback for valid ID pattern
   if (!cert && /^SIM-2026-[A-Z]+-[0-9]+$/.test(formattedId)) {
+    const APP_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.APP_URL || "http://localhost:3000";
     cert = {
       certificateId: formattedId,
       studentName: "Verified Graduate",
@@ -43,7 +44,7 @@ export default async function CertificateResultPage({ params }) {
       skillsVerified: ["React.js", "Node.js", "PostgreSQL", "System Design"],
       capstoneProject: "Verified Production Capstone",
       issuer: "Simatrix Academy Academic Council",
-      verificationUrl: `http://localhost:3000/verify/${formattedId}`,
+      verificationUrl: `${APP_URL}/verify/${formattedId}`,
     };
   }
 

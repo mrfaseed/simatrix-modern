@@ -1,0 +1,57 @@
+name: Deploy to Hostinger (Pre-built Artifacts via Rsync)
+
+# Use this workflow if your Hostinger shared hosting server runs low on RAM
+# during Next.js builds. This workflow compiles everything on GitHub runners
+# and transfers pre-built artifacts directly to Hostinger over SSH.
+
+on:
+  workflow_dispatch: # Can be triggered manually from GitHub Actions tab
+
+jobs:
+  build-and-rsync:
+    name: Build on GitHub & Sync to Hostinger
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
+
+      - name: Install Dependencies
+        run: |
+          npm --prefix backend install --omit=dev
+          npm --prefix frontend install
+
+      - name: Build Next.js Application
+        run: |
+          npm --prefix frontend run build
+          node scripts/copy-standalone-assets.js
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL || 'http://localhost:3000' }}
+
+      - name: Deploy Pre-built Files via Rsync
+        uses: easingthemes/ssh-deploy@v5.1.0
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          REMOTE_PORT: ${{ secrets.HOSTINGER_SSH_PORT || '65002' }}
+          REMOTE_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          TARGET: ${{ secrets.HOSTINGER_TARGET_DIR || '/home/uXXXXXXXXX/domains/yourdomain.com/public_html' }}
+          EXCLUDE: "/.git/, /node_modules/, /frontend/node_modules/, /backend/node_modules/"
+          SCRIPT_AFTER: |
+            cd ${{ secrets.HOSTINGER_TARGET_DIR || '/home/uXXXXXXXXX/domains/yourdomain.com/public_html' }}
+            npm install --omit=dev
+            npm --prefix backend install --omit=dev
+            npm --prefix frontend install --omit=dev
+            if command -v pm2 > /dev/null 2>&1; then
+              pm2 restart ecosystem.config.js || pm2 start ecosystem.config.js
+            elif command -v npx > /dev/null 2>&1; then
+              npx pm2 restart ecosystem.config.js || npx pm2 start ecosystem.config.js
+            fi

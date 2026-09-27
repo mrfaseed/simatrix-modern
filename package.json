@@ -1,0 +1,32 @@
+{
+  "name": "simatrix-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simatrix Academy - EdTech Platform Monorepo",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "npm --prefix backend install --omit=dev && npm --prefix frontend install",
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "build": "npm --prefix frontend run build",
+    "start": "node server.js",
+    "start:frontend": "npm --prefix frontend run start",
+    "start:backend": "npm --prefix backend run start",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "lint": "npm --prefix frontend run lint",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:restart": "pm2 restart ecosystem.config.js",
+    "pm2:stop": "pm2 stop ecosystem.config.js",
+    "pm2:logs": "pm2 logs"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "express",
+    "hostinger",
+    "education"
+  ]
+}
