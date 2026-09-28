@@ -110,6 +110,6 @@ app.post('/api/v1/workshops', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Simatrix Academy Backend running on port ${PORT}`);
 });

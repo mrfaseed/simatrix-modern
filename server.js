@@ -7,6 +7,7 @@ const BACKEND_DIR = path.join(__dirname, 'backend');
 
 const PORT = process.env.PORT || 3000;
 const BACKEND_PORT = process.env.BACKEND_PORT || 5000;
+process.env.HOSTNAME = '0.0.0.0';
 
 console.log('==============================================');
 console.log('   Simatrix Academy - Production Supervisor   ');
@@ -53,6 +54,7 @@ if (fs.existsSync(standaloneServer)) {
       cwd: path.join(FRONTEND_DIR, '.next', 'standalone'),
       env: {
         ...process.env,
+        HOSTNAME: '0.0.0.0',
         PORT: PORT.toString(),
         BACKEND_URL: process.env.BACKEND_URL || `http://127.0.0.1:${BACKEND_PORT}`,
         NODE_ENV: 'production',
