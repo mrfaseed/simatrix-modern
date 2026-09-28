@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - beta
-      - main
   workflow_dispatch:
 
 concurrency:
@@ -77,9 +76,9 @@ jobs:
             # Install production dependencies for backend if missing
             npm --prefix backend install --omit=dev
             
-            # Reload PM2 process on port 3005
+            # Reload PM2 process on dedicated port 4000
             echo "Restarting simatrix-beta in PM2..."
-            PORT=3005 BACKEND_PORT=5005 pm2 restart simatrix-beta --update-env || PORT=3005 BACKEND_PORT=5005 pm2 start server.js --name simatrix-beta
+            PORT=4000 BACKEND_PORT=5050 pm2 restart simatrix-beta --update-env || PORT=4000 BACKEND_PORT=5050 pm2 start server.js --name simatrix-beta
             pm2 save
             
             echo "=== Beta Deployment Completed Successfully ==="
