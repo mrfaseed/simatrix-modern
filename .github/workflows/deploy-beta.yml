@@ -71,6 +71,7 @@ jobs:
             export PATH="$HOME/.npm-global/bin:$PATH"
             
             TARGET_DIR="${{ secrets.HOSTINGER_TARGET_DIR_BETA || '/home/u497440012/domains/simatrixacademy.com/public_html/beta' }}"
+            mkdir -p "$TARGET_DIR"
             cd "$TARGET_DIR" || exit 1
             
             # Install production dependencies for backend if missing
@@ -78,7 +79,7 @@ jobs:
             
             # Reload PM2 process on dedicated port 4000
             echo "Restarting simatrix-beta in PM2..."
-            PORT=4000 BACKEND_PORT=5050 pm2 restart simatrix-beta --update-env || PORT=4000 BACKEND_PORT=5050 pm2 start server.js --name simatrix-beta
+            PORT=4000 BACKEND_PORT=5050 pm2 restart simatrix-beta --update-env || PORT=4000 BACKEND_PORT=5050 pm2 start server.js --name simatrix-beta -f
             pm2 save
             
             echo "=== Beta Deployment Completed Successfully ==="
