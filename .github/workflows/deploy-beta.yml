@@ -61,25 +61,30 @@ jobs:
           password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: ${{ secrets.HOSTINGER_SSH_PORT || 65002 }}
-          script_stop: true
+          script_stop: false
           script: |
             echo "=== Activating Beta Deployment on Hostinger ==="
+            set +e
+            
+            # Export direct paths to Node v20 and global binaries
             export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            nvm use 20 2>/dev/null || nvm use default 2>/dev/null || true
-            export PATH="$PATH:$HOME/.nvm/versions/node/v20.20.2/bin:$HOME/.npm-global/bin"
-            command -v pm2 >/dev/null 2>&1 || npm install -g pm2
+            [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+            NODE_BIN="$HOME/.nvm/versions/node/v20.20.2/bin"
+            export PATH="$NODE_BIN:$HOME/.npm-global/bin:$HOME/.local/bin:$PATH"
+            
+            # Ensure pm2 is installed
+            if ! command -v pm2 >/dev/null 2>&1; then
+              echo "Installing PM2 globally..."
+              npm install -g pm2
+            fi
             
             TARGET_DIR="${{ secrets.HOSTINGER_TARGET_DIR_BETA || '/home/u497440012/domains/simatrixacademy.com/public_html/beta' }}"
-            mkdir -p "$TARGET_DIR"
+            mkdir -p "$TARGET_DIR/backend/data"
+            chmod 775 "$TARGET_DIR/backend/data" 2>/dev/null || true
             cd "$TARGET_DIR" || exit 1
             
-            # Ensure permissions on backend data directory for PHP writes
-            mkdir -p backend/data
-            chmod 775 backend/data
-            
-            # Reload PM2 process cleanly on dedicated port 4000
-            echo "Starting simatrix-beta in PM2..."
+            # Restart PM2 on port 4000
+            echo "Starting simatrix-beta in PM2 on port 4000..."
             pm2 delete simatrix-beta 2>/dev/null || true
             PORT=4000 pm2 start server.js --name simatrix-beta
             pm2 save
