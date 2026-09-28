@@ -8,9 +8,9 @@ DirectoryIndex index.php index.html
   RewriteRule ^api/(.*)$ backend/index.php?endpoint=$1 [QSA,L]
   RewriteRule ^backend/(.*)$ backend/index.php?endpoint=$1 [QSA,L]
 
-  # 2. Reverse proxy all frontend routes to Next.js running on internal port 4000
+  # 2. Reverse proxy all frontend routes to Next.js on Hostinger IP port 4000
   RewriteCond %{REQUEST_URI} !^/health
   RewriteCond %{REQUEST_URI} !^/api/
   RewriteCond %{REQUEST_URI} !^/backend/
-  RewriteRule ^(.*)$ http://127.0.0.1:4000/$1 [P,L]
+  RewriteRule ^(.*)$ http://89.116.133.58:4000/$1 [P,L]
 </IfModule>
