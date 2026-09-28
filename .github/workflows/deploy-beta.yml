@@ -26,10 +26,8 @@ jobs:
           cache: 'npm'
           cache-dependency-path: 'frontend/package-lock.json'
 
-      - name: Install Dependencies
+      - name: Install Frontend Dependencies
         run: |
-          echo "Installing backend dependencies..."
-          npm --prefix backend install --omit=dev
           echo "Installing frontend dependencies..."
           npm --prefix frontend install
 
@@ -74,13 +72,14 @@ jobs:
             mkdir -p "$TARGET_DIR"
             cd "$TARGET_DIR" || exit 1
             
-            # Install production dependencies for backend if missing
-            npm --prefix backend install --omit=dev
+            # Ensure permissions on backend data directory for PHP writes
+            mkdir -p backend/data
+            chmod 775 backend/data
             
             # Reload PM2 process cleanly on dedicated port 4000
             echo "Starting simatrix-beta in PM2..."
             pm2 delete simatrix-beta 2>/dev/null || true
-            PORT=4000 BACKEND_PORT=5050 pm2 start server.js --name simatrix-beta
+            PORT=4000 pm2 start server.js --name simatrix-beta
             pm2 save
             
             echo "=== Beta Deployment Completed Successfully ==="

@@ -18,7 +18,8 @@ export default async function CertificateResultPage({ params }) {
 
   if (!cert) {
     try {
-      const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:5000";
+      const APP_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.APP_URL || "https://beta.simatrixacademy.com";
+      const BACKEND_URL = process.env.BACKEND_URL || APP_URL;
       const res = await fetch(`${BACKEND_URL}/api/v1/certificates/${formattedId}`, { cache: "no-store" });
       if (res.ok) {
         const data = await res.json();
@@ -33,7 +34,7 @@ export default async function CertificateResultPage({ params }) {
 
   // Fallback for valid ID pattern
   if (!cert && /^SIM-2026-[A-Z]+-[0-9]+$/.test(formattedId)) {
-    const APP_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.APP_URL || "http://localhost:3000";
+    const APP_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.APP_URL || "https://beta.simatrixacademy.com";
     cert = {
       certificateId: formattedId,
       studentName: "Verified Graduate",

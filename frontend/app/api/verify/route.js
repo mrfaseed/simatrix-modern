@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { SAMPLE_CERTIFICATES } from "@/lib/data/certificates";
 
-const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:5000";
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.APP_URL || "http://localhost:3000";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.APP_URL || "https://beta.simatrixacademy.com";
+const BACKEND_URL = process.env.BACKEND_URL || APP_URL;
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
