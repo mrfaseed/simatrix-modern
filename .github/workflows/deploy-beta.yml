@@ -66,7 +66,9 @@ jobs:
             echo "=== Activating Beta Deployment on Hostinger ==="
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            export PATH="$HOME/.npm-global/bin:$PATH"
+            nvm use 20 2>/dev/null || nvm use default 2>/dev/null || true
+            export PATH="$PATH:$HOME/.nvm/versions/node/v20.20.2/bin:$HOME/.npm-global/bin"
+            command -v pm2 >/dev/null 2>&1 || npm install -g pm2
             
             TARGET_DIR="${{ secrets.HOSTINGER_TARGET_DIR_BETA || '/home/u497440012/domains/simatrixacademy.com/public_html/beta' }}"
             mkdir -p "$TARGET_DIR"
