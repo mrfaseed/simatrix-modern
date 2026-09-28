@@ -48,7 +48,7 @@ jobs:
           password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: ${{ secrets.HOSTINGER_SSH_PORT || 65002 }}
-          source: "frontend/.next,frontend/public,frontend/package.json,backend,server.js,package.json,ecosystem.config.js,.htaccess"
+          source: "frontend/.next,frontend/public,frontend/package.json,backend,index.php,server.js,package.json,ecosystem.config.js,.htaccess"
           target: "${{ secrets.HOSTINGER_TARGET_DIR_BETA || '/home/u497440012/domains/simatrixacademy.com/public_html/beta' }}"
           overwrite: true
           strip_components: 0

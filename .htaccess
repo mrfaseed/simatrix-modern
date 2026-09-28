@@ -2,15 +2,13 @@ DirectoryIndex index.php index.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteBase /
 
-  # 1. Route health and API endpoints directly to native PHP backend
-  RewriteRule ^health/?$ backend/index.php?endpoint=health [QSA,L]
-  RewriteRule ^api/(.*)$ backend/index.php?endpoint=$1 [QSA,L]
-  RewriteRule ^backend/(.*)$ backend/index.php?endpoint=$1 [QSA,L]
+  # Serve existing static files/directories directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
 
-  # 2. Reverse proxy all frontend routes to Next.js on Hostinger IP port 4000
-  RewriteCond %{REQUEST_URI} !^/health
-  RewriteCond %{REQUEST_URI} !^/api/
-  RewriteCond %{REQUEST_URI} !^/backend/
-  RewriteRule ^(.*)$ http://89.116.133.58:4000/$1 [P,L]
+  # Route everything else to the PHP Gateway
+  RewriteRule ^(.*)$ index.php [QSA,L]
 </IfModule>
