@@ -50,9 +50,22 @@ if (in_array($method, ['POST', 'PUT', 'PATCH', 'DELETE'])) {
 $response = curl_exec($ch);
 
 if ($response === false) {
+    // Attempt automatic self-healing: wake up Next.js if idle or terminated
+    $nodeBin = '/home/u497440012/.nvm/versions/node/v20.20.2/bin/node';
+    $serverJs = __DIR__ . '/server.js';
+    
+    if (file_exists($nodeBin) && file_exists($serverJs) && function_exists('exec')) {
+        @exec("PORT=4000 HOSTNAME=0.0.0.0 {$nodeBin} {$serverJs} > /dev/null 2>&1 &");
+        // Give Next.js 1.8 seconds to initialize and bind
+        usleep(1800000);
+        $response = curl_exec($ch);
+    }
+}
+
+if ($response === false) {
     http_response_code(502);
     header('Content-Type: text/html');
-    echo '<h1>Simatrix Academy - Starting Up</h1><p>The application server is warming up. Please refresh in 5 seconds.</p>';
+    echo '<h1>Simatrix Academy - Application Starting</h1><p>The application server is warming up. Please refresh in a few seconds.</p>';
     curl_close($ch);
     exit();
 }
