@@ -77,9 +77,9 @@ jobs:
             # Install production dependencies for backend if missing
             npm --prefix backend install --omit=dev
             
-            # Reload PM2 process on port 3000
+            # Reload PM2 process on port 3005
             echo "Restarting simatrix-beta in PM2..."
-            PORT=3000 BACKEND_PORT=5000 pm2 restart simatrix-beta --update-env || PORT=3000 BACKEND_PORT=5000 pm2 start server.js --name simatrix-beta
+            PORT=3005 BACKEND_PORT=5005 pm2 restart simatrix-beta --update-env || PORT=3005 BACKEND_PORT=5005 pm2 start server.js --name simatrix-beta
             pm2 save
             
             echo "=== Beta Deployment Completed Successfully ==="
