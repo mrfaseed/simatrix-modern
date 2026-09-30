@@ -3,6 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+// =========================================================================
+// Landing Page Hero Images (Easily change these two paths anytime)
+// =========================================================================
+export const LANDING_BG_IMAGE_1 = "/images/simatrix-lap.jpg";
+export const LANDING_BG_IMAGE_2 = "/images/simatrix-lap-2-ai.jpg";
+
 export default function Hero() {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -27,7 +33,7 @@ export default function Hero() {
       headlineLead: "Build Your Career",
       headlineAccent: "While You Earn a Portfolio of Proof",
       subtitle: "Full-stack engineering, production Next.js microservices, generative AI pipelines, and mentor-verified codebases — tangible proof that opens doors to senior roles.",
-      bgImage: "/images/campus_hero.jpg",
+      bgImage: LANDING_BG_IMAGE_1,
       primaryText: "See Outcomes",
       primaryHref: "/career",
       secondaryText: "Apply Now",
@@ -47,7 +53,7 @@ export default function Hero() {
       headlineLead: "A Tech Studio Built",
       headlineAccent: "for Builders, Not Classrooms",
       subtitle: "High-tech collaboration studios, 4K multi-monitor workstations, and active engineering mentors conducting real-time architecture critiques and code reviews.",
-      bgImage: "/images/campus_hero.jpg",
+      bgImage: LANDING_BG_IMAGE_2,
       primaryText: "Explore Campus",
       primaryHref: "/about",
       secondaryText: "Apply Now",
@@ -63,10 +69,10 @@ export default function Hero() {
         </svg>
       ),
       badge: "NO ENTRANCE EXAM • MERIT EVALUATION",
-      headlineLead: "Simplified Cohort Selection",
+      headlineLead: "Simplified Admissions",
       headlineAccent: "& 1:1 Career Counseling",
       subtitle: "Evaluate your aptitude through practical problem-solving rather than rote memorization. Rolling admission interviews with senior tech practitioners.",
-      bgImage: "/images/campus_hero.jpg",
+      bgImage: LANDING_BG_IMAGE_1,
       primaryText: "Book 1:1 Counseling",
       primaryHref: "/contact",
       secondaryText: "Apply Now",
@@ -82,10 +88,10 @@ export default function Hero() {
         </svg>
       ),
       badge: "VERIFIED PUBLIC PROOF-OF-WORK PROFILES",
-      headlineLead: "Leave with skills",
-      headlineAccent: "and a portfolio of proof.",
+      headlineLead: "Leave With Skills",
+      headlineAccent: "& a Portfolio of Proof",
       subtitle: "Production codebases, multi-tenant MVPs, verified GitHub commits, and senior mentor code reviews — tangible evidence that opens doors to high-paying engineering roles.",
-      bgImage: "/images/innovation_lab.jpg",
+      bgImage: LANDING_BG_IMAGE_2,
       primaryText: "See Outcomes",
       primaryHref: "/career",
       secondaryText: "Apply Now",
@@ -103,15 +109,24 @@ export default function Hero() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        backgroundImage: `url(${current.bgImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center right",
-        backgroundRepeat: "no-repeat",
         color: "#FAF8F5",
         overflow: "hidden",
-        transition: "background-image 0.6s ease-in-out",
       }}
     >
+      {/* Dedicated Static Background Layer — size NEVER jumps or stretches */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `url(${current.bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center right",
+          backgroundRepeat: "no-repeat",
+          zIndex: 0,
+          transition: "background-image 0.6s ease-in-out",
+        }}
+      />
+
       {/* Silky Left Vignette Gradient */}
       <div
         style={{
@@ -138,19 +153,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Bottom Soft Fade into Page Content */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "90px",
-          background: "linear-gradient(0deg, var(--color-background) 0%, rgba(255, 255, 255, 0) 100%)",
-          zIndex: 1,
-          pointerEvents: "none",
-        }}
-      />
 
       <div
         className="container"
@@ -221,13 +223,14 @@ export default function Hero() {
           })}
         </div>
 
-        {/* Hero Left Content Column */}
-        <div style={{ maxWidth: "660px" }}>
+        {/* Hero Left Content Column with locked height */}
+        <div style={{ maxWidth: "660px", minHeight: "410px", display: "flex", flexDirection: "column" }}>
           
           {/* Scholarship Badge (Refined Pill) */}
           <div
             style={{
               display: "inline-block",
+              alignSelf: "flex-start",
               background: "var(--color-hero-badge-bg)",
               color: "var(--color-hero-badge-text)",
               padding: "6px 14px",
@@ -254,6 +257,7 @@ export default function Hero() {
               letterSpacing: "-0.035em",
               color: "#FFFFFF",
               marginBottom: "22px",
+              minHeight: "3.4em",
               textShadow: "0 2px 18px rgba(0, 0, 0, 0.45)",
             }}
           >
@@ -270,6 +274,7 @@ export default function Hero() {
               lineHeight: 1.68,
               marginBottom: "38px",
               maxWidth: "580px",
+              minHeight: "5.1em",
               textShadow: "0 1px 6px rgba(0, 0, 0, 0.3)",
             }}
           >
@@ -283,6 +288,7 @@ export default function Hero() {
               alignItems: "center",
               gap: "16px",
               flexWrap: "wrap",
+              marginTop: "auto",
             }}
           >
             {/* Primary Pill Button */}

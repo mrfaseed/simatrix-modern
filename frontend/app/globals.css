@@ -477,17 +477,34 @@ input:focus, textarea:focus, select:focus {
   display: flex !important;
 }
 
-@media (min-width: 1081px) and (max-width: 1220px) {
+.desktop-phone {
+  display: inline-flex !important;
+}
+
+.desktop-divider {
+  display: block !important;
+}
+
+@media (min-width: 1081px) and (max-width: 1280px) {
   .desktop-nav {
-    gap: 14px !important;
+    gap: 20px !important;
   }
-  .desktop-nav a {
-    font-size: 0.85rem !important;
+  .desktop-phone {
+    display: none !important;
+  }
+  .desktop-divider {
+    display: none !important;
   }
 }
 
 @media (max-width: 1080px) {
   .desktop-nav {
+    display: none !important;
+  }
+  .desktop-phone {
+    display: none !important;
+  }
+  .desktop-divider {
     display: none !important;
   }
   .mobile-toggle {
