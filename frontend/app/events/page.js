@@ -14,7 +14,7 @@ export default function EventsPage() {
     <div className="section">
       <div className="container">
         <div className="section-header">
-          <div className="section-badge" style={{ background: "rgba(99, 102, 241, 0.15)", borderColor: "rgba(99, 102, 241, 0.3)", color: "#a5b4fc" }}>
+          <div className="section-badge" style={{ background: "var(--vil-gold-bg)", borderColor: "var(--vil-gold-border)", color: "var(--vil-gold-dim)" }}>
             Community Workshops
           </div>
           <h1 className="section-title">
@@ -30,12 +30,12 @@ export default function EventsPage() {
             <Card key={w.id} style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "14px" }}>
                 <Badge variant="emerald">{w.price}</Badge>
-                <span style={{ fontSize: "0.82rem", color: "var(--accent-cyan)", fontWeight: 600 }}>
+                <span style={{ fontSize: "0.82rem", color: "var(--vil-gold)", fontWeight: 700 }}>
                   {w.date}
                 </span>
               </div>
 
-              <h2 style={{ fontSize: "1.3rem", color: "#fff", marginBottom: "10px" }}>
+              <h2 style={{ fontSize: "1.3rem", color: "var(--text-primary)", marginBottom: "10px" }}>
                 {w.title}
               </h2>
 

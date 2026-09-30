@@ -422,22 +422,23 @@ export default function FlagshipPrograms() {
           gap: 8px;
           padding: 6px 18px;
           border-radius: 9999px;
-          background: #EEF4FF;
-          border: 1px solid #BFDBFE;
-          color: #1D4ED8;
+          background: #F8FAFC;
+          border: 1px solid #E2E8F0;
+          color: #0F172A;
           font-size: 0.76rem;
           font-weight: 700;
           letter-spacing: 0.12em;
           text-transform: uppercase;
           margin-bottom: 16px;
+          box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
         }
 
         .badge-pulse {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: #0052FF;
-          box-shadow: 0 0 8px rgba(0, 82, 255, 0.8);
+          background: #D97706;
+          box-shadow: 0 0 8px rgba(217, 119, 6, 0.6);
         }
 
         .programs-title {
@@ -450,7 +451,7 @@ export default function FlagshipPrograms() {
         }
 
         .title-gradient {
-          background: linear-gradient(135deg, #0052FF 0%, #2563EB 55%, #4F46E5 100%);
+          background: linear-gradient(135deg, #0F172A 0%, #0052FF 55%, #4F46E5 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           display: inline-block;

@@ -38,7 +38,7 @@ export default function CareerHubPage() {
           {CAREER_PILLARS.map((p) => (
             <Card key={p.title} style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: "2rem", marginBottom: "14px" }}>{p.icon}</div>
-              <h2 style={{ fontSize: "1.25rem", color: "#fff", marginBottom: "10px" }}>{p.title}</h2>
+              <h2 style={{ fontSize: "1.25rem", color: "var(--text-primary)", marginBottom: "10px" }}>{p.title}</h2>
               <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", marginBottom: "20px", flexGrow: 1, lineHeight: 1.6 }}>
                 {p.desc}
               </p>

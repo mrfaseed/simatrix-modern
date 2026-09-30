@@ -9,48 +9,48 @@
 
 :root {
   /* ------------------------------------------------------------------------
-     1. PRIMARY & BRAND ACTIONS
+     1. PRIMARY & BRAND ACTIONS (Refined Royal Sapphire)
      ------------------------------------------------------------------------ */
-  --color-primary:             #1746D1;        /* Premium royal blue */
-  --color-primary-hover:       #1239B0;        /* Deeper interactive blue */
-  --color-primary-card:        #F0F5FF;        /* Soft premium blue surface */
+  --color-primary:             #0052FF;        /* Vivid Royal Blue for key brand actions */
+  --color-primary-hover:       #0045D8;        /* Deeper interactive blue */
+  --color-primary-card:        #F8FAFC;        /* Clean neutral surface */
   --color-primary-contrast:    #FFFFFF;        /* Text on primary surfaces */
 
   /* ------------------------------------------------------------------------
-     2. ACCENT & HIGHLIGHTS
+     2. ACCENT & HIGHLIGHTS (Warm Amber / Gold — breaks the blue monotony!)
      ------------------------------------------------------------------------ */
-  --color-accent:              #2563EB;        /* Refined electric blue */
-  --color-accent-hover:        #3B82F6;        /* Bright interactive highlight */
-  --color-accent-muted:        #3157B7;        /* Muted premium blue */
-  --color-accent-subtle:       rgba(37, 99, 235, 0.08);
-  --color-accent-border:       rgba(37, 99, 235, 0.20);
+  --color-accent:              #D97706;        /* Warm Amber Gold */
+  --color-accent-hover:        #B45309;        /* Deep Amber */
+  --color-accent-muted:        #92400E;        /* Muted Amber */
+  --color-accent-subtle:       rgba(217, 119, 6, 0.09);
+  --color-accent-border:       rgba(217, 119, 6, 0.25);
   --color-accent-contrast:     #FFFFFF;
 
   /* ------------------------------------------------------------------------
-     3. BACKGROUNDS & SURFACES
+     3. BACKGROUNDS & SURFACES (Neutral depth, no blue-tinted flood)
      ------------------------------------------------------------------------ */
   --color-background:          #FFFFFF;        /* Pure white main background */
   --color-surface:             #FFFFFF;        /* Cards, navbar, inputs */
   --color-surface-elevated:    #FFFFFF;        /* Modals & floating panels */
-  --color-surface-subtle:      #F7F9FC;        /* Premium cool-white section */
+  --color-surface-subtle:      #F8FAFC;        /* Sophisticated light slate */
 
   /* ------------------------------------------------------------------------
-     4. TYPOGRAPHY & TEXT
+     4. TYPOGRAPHY & TEXT (Deep Slate & Charcoal for high contrast)
      ------------------------------------------------------------------------ */
-  --color-text-primary:        #111827;        /* Strong headings & body */
-  --color-text-secondary:      #475569;        /* Supporting content */
+  --color-text-primary:        #0F172A;        /* Deep slate headings & high-contrast body */
+  --color-text-secondary:      #475569;        /* Refined supporting content */
   --color-text-muted:          #64748B;        /* Metadata & helper text */
   --color-text-soft:           #94A3B8;        /* Subtle labels */
-  --color-text-inverse:        #FFFFFF;        /* Text on blue surfaces */
-  --color-text-accent:         var(--color-primary);
+  --color-text-inverse:        #FFFFFF;        /* Text on dark/saturated surfaces */
+  --color-text-accent:         #0052FF;
 
   /* ------------------------------------------------------------------------
      5. BORDERS & DIVIDERS
      ------------------------------------------------------------------------ */
-  --color-border:              #E5EAF2;        /* Soft neutral border */
+  --color-border:              #E2E8F0;        /* Soft neutral slate border */
   --color-border-strong:       #CBD5E1;        /* Stronger separation */
-  --color-border-focus:        var(--color-accent);
-  --color-border-glow:         rgba(37, 99, 235, 0.22);
+  --color-border-focus:        #0052FF;
+  --color-border-glow:         rgba(0, 82, 255, 0.20);
 
   /* ------------------------------------------------------------------------
      6. STATUS & FEEDBACK
@@ -66,59 +66,59 @@
   --grad-primary:
     linear-gradient(
       135deg,
-      #1239B0 0%,
-      #1746D1 45%,
-      #2563EB 100%
+      #0F172A 0%,
+      #0052FF 100%
     );
 
   --grad-accent:
     linear-gradient(
       135deg,
-      #1746D1 0%,
-      #2563EB 55%,
-      #3B82F6 100%
+      #B45309 0%,
+      #D97706 50%,
+      #F59E0B 100%
     );
 
   --grad-accent-text:
     linear-gradient(
       135deg,
-      #1239B0 0%,
-      #2563EB 55%,
-      #3B82F6 100%
+      #0F172A 0%,
+      #0052FF 55%,
+      #2563EB 100%
     );
 
   --grad-surface:
     linear-gradient(
       180deg,
       #FFFFFF 0%,
-      #F7F9FC 100%
+      #F8FAFC 100%
     );
 
   --grad-hero:
     radial-gradient(
       ellipse 80% 50% at 50% -10%,
-      rgba(37, 99, 235, 0.07) 0%,
+      rgba(0, 82, 255, 0.06) 0%,
       rgba(255, 255, 255, 0) 70%
     );
 
   /* ------------------------------------------------------------------------
      8. HERO SECTION TOKENS
      ------------------------------------------------------------------------ */
-  --color-hero-badge-bg:             var(--color-accent);
-  --color-hero-badge-text:           var(--color-accent-contrast);
-  --color-hero-tab-active:           var(--color-accent);
-  --color-hero-tab-active-bg:        var(--color-accent-subtle);
-  --color-hero-tab-glow:             var(--color-border-glow);
+  --color-hero-badge-bg:             #D97706;        /* Warm Amber badge — stands out instantly! */
+  --color-hero-badge-text:           #FFFFFF;
+  --color-hero-badge-glow:           rgba(217, 119, 6, 0.35);
+  --color-hero-tab-active:           #F59E0B;
+  --color-hero-tab-active-bg:        rgba(245, 158, 11, 0.12);
+  --color-hero-tab-glow:             rgba(245, 158, 11, 0.35);
 
-  --color-hero-btn-primary-bg:       var(--color-primary);
-  --color-hero-btn-primary-text:     var(--color-primary-contrast);
-  --color-hero-btn-primary-glow:     var(--color-border-glow);
+  --color-hero-btn-primary-bg:       #0052FF;
+  --color-hero-btn-primary-text:     #FFFFFF;
+  --color-hero-btn-primary-glow:     rgba(0, 82, 255, 0.35);
 
-  --color-hero-btn-secondary-bg:     rgba(255, 255, 255, 0.90);
-  --color-hero-btn-secondary-hover:  #F1F5F9;
-  --color-hero-btn-secondary-text:   var(--color-text-primary);
-  --color-hero-btn-secondary-border: var(--color-border);
-  --color-hero-btn-secondary-dot:    var(--color-accent);
+  --color-hero-btn-secondary-bg:     rgba(255, 255, 255, 0.10);
+  --color-hero-btn-secondary-hover:  rgba(255, 255, 255, 0.18);
+  --color-hero-btn-secondary-text:   #FFFFFF;
+  --color-hero-btn-secondary-border: rgba(255, 255, 255, 0.28);
+  --color-hero-btn-secondary-dot:    #F59E0B;
 
   /* ------------------------------------------------------------------------
      9. COMPATIBILITY MAPPINGS
@@ -148,22 +148,28 @@
   --accent-amber:              var(--color-warning);
 
   --grad-gold:                 var(--grad-accent);
-  --grad-gold-text:            var(--grad-accent-text);
+  --grad-gold-text:
+    linear-gradient(
+      135deg,
+      #B45309 0%,
+      #D97706 45%,
+      #EA580C 100%
+    );
 
   /* ------------------------------------------------------------------------
-     10. LEGACY ALIASES
+     10. LEGACY ALIASES (Deep Slate Navy & Warm Amber Gold)
      ------------------------------------------------------------------------ */
-  --vil-navy:                  var(--color-primary);
-  --vil-navy-light:            var(--color-primary-hover);
-  --vil-navy-card:             var(--color-primary-card);
+  --vil-navy:                  #0F172A;        /* Deep Obsidian Navy — high-contrast headings */
+  --vil-navy-light:            #1E293B;
+  --vil-navy-card:             #FFFFFF;
 
-  --vil-gold:                  var(--color-accent);
-  --vil-gold-light:            var(--color-accent-hover);
-  --vil-gold-dim:              var(--color-accent-muted);
-  --vil-gold-bg:               var(--color-accent-subtle);
-  --vil-gold-border:            var(--color-accent-border);
+  --vil-gold:                  #D97706;        /* Warm Amber Gold */
+  --vil-gold-light:            #F59E0B;
+  --vil-gold-dim:              #B45309;
+  --vil-gold-bg:               #FEF3C7;        /* Soft honey cream background */
+  --vil-gold-border:           #FDE68A;
 
-  --vil-ivory:                 var(--color-background);
-  --vil-ivory-light:           var(--color-background);
+  --vil-ivory:                 #F8FAFC;        /* Subtle slate canvas */
+  --vil-ivory-light:           #FFFFFF;
   --vil-surface:               var(--color-surface);
 }

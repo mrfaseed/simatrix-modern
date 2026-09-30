@@ -8,15 +8,15 @@ export default function WorkshopBanner() {
     <section className="section" style={{ background: "#FFFFFF" }}>
       <div className="container">
         <div style={{
-          background: "#FAF8F5",
-          border: "1px solid var(--border-subtle)",
+          background: "linear-gradient(135deg, #FFFFFF 0%, #FFFDF7 100%)",
+          border: "1px solid #FDE68A",
           borderRadius: "28px",
           padding: "54px 44px",
           display: "grid",
           gridTemplateColumns: "1.3fr 1fr",
           gap: "44px",
           alignItems: "center",
-          boxShadow: "var(--shadow-card)",
+          boxShadow: "0 10px 30px -5px rgba(217, 119, 6, 0.08), var(--shadow-sm)",
         }}>
           <div>
             <div style={{ display: "flex", gap: "10px", alignItems: "center", marginBottom: "16px" }}>

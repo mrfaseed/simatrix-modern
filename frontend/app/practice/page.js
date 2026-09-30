@@ -35,7 +35,7 @@ export default function PracticeHubPage() {
                 </span>
               </div>
 
-              <h2 style={{ fontSize: "1.35rem", color: "#fff", marginBottom: "10px" }}>
+              <h2 style={{ fontSize: "1.35rem", color: "var(--text-primary)", marginBottom: "10px" }}>
                 {mod.name}
               </h2>
 
@@ -52,8 +52,9 @@ export default function PracticeHubPage() {
                     <span key={l} style={{
                       fontSize: "0.75rem",
                       padding: "2px 8px",
-                      borderRadius: "4px",
-                      background: "rgba(255, 255, 255, 0.05)",
+                      borderRadius: "6px",
+                      background: "#F1F5F9",
+                      border: "1px solid var(--border-subtle)",
                       color: "var(--text-secondary)",
                     }}>
                       {l}

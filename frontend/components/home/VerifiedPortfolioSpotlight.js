@@ -30,9 +30,9 @@ export default function VerifiedPortfolioSpotlight() {
                 gap: "6px",
                 padding: "4px 12px",
                 borderRadius: "999px",
-                background: "#EFF6FF",
-                border: "1px solid #BFDBFE",
-                color: "#1D4ED8",
+                background: "#ECFDF5",
+                border: "1px solid #A7F3D0",
+                color: "#059669",
                 fontSize: "0.75rem",
                 fontWeight: 700,
                 letterSpacing: "0.06em",
@@ -45,7 +45,7 @@ export default function VerifiedPortfolioSpotlight() {
                   width: "6px",
                   height: "6px",
                   borderRadius: "50%",
-                  background: "#2563EB",
+                  background: "#10B981",
                 }}
               />
               Digital Proof of Work

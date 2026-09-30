@@ -41,7 +41,7 @@ export default function FreeLearningPage() {
                 <span style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>{res.duration}</span>
               </div>
 
-              <h2 style={{ fontSize: "1.25rem", color: "#fff", marginBottom: "10px" }}>
+              <h2 style={{ fontSize: "1.25rem", color: "var(--text-primary)", marginBottom: "10px" }}>
                 {res.title}
               </h2>
 

@@ -179,28 +179,28 @@ p {
 }
 
 .btn-primary, .btn-glow {
-  background: var(--vil-navy);
+  background: #0052FF;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 14px rgba(11, 19, 32, 0.18);
+  box-shadow: 0 4px 14px rgba(0, 82, 255, 0.25);
 }
 
 .btn-primary:hover, .btn-glow:hover {
-  background: var(--vil-navy-light);
+  background: #0045D8;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(11, 19, 32, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 82, 255, 0.35);
 }
 
 .btn-gold {
   background: var(--vil-gold);
   color: #FFFFFF !important;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.28);
 }
 
 .btn-gold:hover {
   background: var(--vil-gold-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.4);
 }
 
 .btn-secondary {
@@ -211,8 +211,8 @@ p {
 }
 
 .btn-secondary:hover {
-  background: #FAF8F5;
-  border-color: #D1C9BA;
+  background: #F8FAFC;
+  border-color: #CBD5E1;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -320,6 +320,52 @@ p {
   box-shadow: 0 4px 14px rgba(0, 82, 255, 0.12);
 }
 
+/* Midnight Executive CTA Buttons */
+.cta-exec-primary {
+  background: #0052FF !important;
+  color: #FFFFFF !important;
+  border-radius: 999px;
+  padding: 15px 36px;
+  font-weight: 800;
+  font-size: 0.96rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 82, 255, 0.4);
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-exec-primary:hover {
+  transform: translateY(-2px);
+  background: #0045D8 !important;
+  box-shadow: 0 12px 30px rgba(0, 82, 255, 0.5);
+}
+
+.cta-exec-glass {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 15px 32px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-exec-glass:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
 /* Glass & Card Surfaces */
 .card-glass, .card {
   background: #FFFFFF;
@@ -334,7 +380,7 @@ p {
 
 .card-glass:hover, .card:hover {
   background: #FFFFFF;
-  border-color: rgba(201, 151, 56, 0.45);
+  border-color: #CBD5E1;
   transform: translateY(-4px);
   box-shadow: var(--shadow-card);
 }
@@ -347,7 +393,7 @@ p {
   font-size: 0.75rem;
   font-weight: 700;
   border-radius: var(--radius-full);
-  background: #F4EFE6;
+  background: #F1F5F9;
   color: var(--vil-navy);
   border: 1px solid var(--border-subtle);
   letter-spacing: 0.02em;
@@ -464,8 +510,8 @@ input:focus, textarea:focus, select:focus {
   width: 16px;
   height: 2px;
   border-radius: 999px;
-  background: var(--color-accent);
-  box-shadow: 0 0 8px var(--color-border-glow);
+  background: #0052FF;
+  box-shadow: 0 0 8px rgba(0, 82, 255, 0.4);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: center;
 }

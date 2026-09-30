@@ -7,11 +7,11 @@ export default function AnnouncementBar() {
     <aside
       aria-label="Admissions Announcement"
       style={{
-        background: "var(--color-accent-hover)",
-        color: "var(--color-accent-contrast)",
+        background: "#0F172A",
+        color: "#F8FAFC",
         padding: "8px 24px",
         fontSize: "0.82rem",
-        fontWeight: 700,
+        fontWeight: 600,
         letterSpacing: "0.015em",
         display: "flex",
         alignItems: "center",
@@ -20,19 +20,34 @@ export default function AnnouncementBar() {
         position: "relative",
         zIndex: 110,
         fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
+        borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", justifyContent: "center" }}>
-        <span>2026 Admissions Open — Limited Seats at the Virudhunagar Campus | Scholarships Up to 50% Available</span>
+        <span style={{
+          background: "rgba(245, 158, 11, 0.18)",
+          color: "#F59E0B",
+          fontSize: "0.72rem",
+          fontWeight: 800,
+          padding: "2px 8px",
+          borderRadius: "4px",
+          letterSpacing: "0.06em",
+          textTransform: "uppercase",
+        }}>
+          2026 Admissions
+        </span>
+        <span style={{ color: "rgba(255, 255, 255, 0.9)" }}>
+          Limited Seats at the Virudhunagar Tech Studio • Merit Scholarships Up to 50% Available
+        </span>
       </div>
       <Link
         href="/contact"
         style={{
           display: "inline-flex",
           alignItems: "center",
-          background: "var(--color-primary)",
-          color: "var(--color-primary-contrast)",
-          padding: "3px 14px",
+          background: "#0052FF",
+          color: "#FFFFFF",
+          padding: "4px 14px",
           borderRadius: "999px",
           fontSize: "0.74rem",
           fontWeight: 700,
@@ -40,17 +55,18 @@ export default function AnnouncementBar() {
           transition: "all 0.15s ease",
           flexShrink: 0,
           textDecoration: "none",
+          boxShadow: "0 2px 8px rgba(0, 82, 255, 0.35)",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "scale(1.04)";
-          e.currentTarget.style.background = "var(--color-primary-hover)";
+          e.currentTarget.style.background = "#0045D8";
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = "scale(1)";
-          e.currentTarget.style.background = "var(--color-primary)";
+          e.currentTarget.style.background = "#0052FF";
         }}
       >
-        <span>Apply Now</span>
+        <span>Apply Now →</span>
       </Link>
     </aside>
   );

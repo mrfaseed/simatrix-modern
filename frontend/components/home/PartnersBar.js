@@ -112,7 +112,7 @@ export default function PartnersBar() {
   return (
     <section
       style={{
-        background: "#FFFFFF",
+        background: "#F8FAFC",
         borderTop: "1px solid var(--border-subtle)",
         borderBottom: "1px solid var(--border-subtle)",
         padding: "40px 0 44px 0",
@@ -186,8 +186,8 @@ export default function PartnersBar() {
           justify-content: center;
           padding: 10px 24px;
           border-radius: 999px;
-          background: #FAF8F5;
-          border: 1px solid var(--border-subtle);
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
           flex-shrink: 0;
           white-space: nowrap;
           height: 56px;
@@ -196,8 +196,8 @@ export default function PartnersBar() {
         }
 
         .partner-logo-item:hover {
-          border-color: rgba(201, 151, 56, 0.45);
-          box-shadow: 0 4px 14px rgba(11, 19, 32, 0.06);
+          border-color: #CBD5E1;
+          box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
         }
 
         .partner-logo-img {
@@ -267,7 +267,7 @@ export default function PartnersBar() {
               fontWeight: 800,
               textTransform: "uppercase",
               letterSpacing: "0.14em",
-              color: "var(--vil-gold-dim)",
+              color: "#64748B",
             }}
           >
             Mentors, Alumni & Hiring Partners From Leading Tech Teams

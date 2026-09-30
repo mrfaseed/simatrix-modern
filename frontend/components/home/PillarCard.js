@@ -459,8 +459,8 @@ export default function CareerPipeline() {
           height: 380px;
           background: radial-gradient(
             ellipse,
-            rgba(59, 130, 246, 0.09) 0%,
-            rgba(99, 102, 241, 0.04) 50%,
+            rgba(59, 130, 246, 0.04) 0%,
+            rgba(99, 102, 241, 0.02) 50%,
             transparent 75%
           );
         }
@@ -472,8 +472,8 @@ export default function CareerPipeline() {
           height: 380px;
           background: radial-gradient(
             ellipse,
-            rgba(168, 85, 247, 0.09) 0%,
-            rgba(236, 72, 153, 0.04) 50%,
+            rgba(168, 85, 247, 0.04) 0%,
+            rgba(236, 72, 153, 0.02) 50%,
             transparent 75%
           );
         }
@@ -528,14 +528,15 @@ export default function CareerPipeline() {
           justify-content: center;
           padding: 6px 18px;
           border-radius: 9999px;
-          background: #EEF4FF;
-          border: 1px solid #BFDBFE;
-          color: #1D4ED8;
+          background: #F8FAFC;
+          border: 1px solid #E2E8F0;
+          color: #0F172A;
           font-size: 0.76rem;
           font-weight: 700;
           letter-spacing: 0.12em;
           text-transform: uppercase;
           margin-bottom: 16px;
+          box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
         }
 
         .pipeline-title {
@@ -548,7 +549,7 @@ export default function CareerPipeline() {
         }
 
         .pipeline-title-gradient {
-          background: linear-gradient(135deg, #0052FF 0%, #2563EB 55%, #4F46E5 100%);
+          background: linear-gradient(135deg, #0F172A 0%, #7C3AED 55%, #0052FF 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           display: inline-block;

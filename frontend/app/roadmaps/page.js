@@ -32,7 +32,7 @@ export default function RoadmapsPage() {
           {ROADMAPS.map((r) => (
             <Card key={r.slug} style={{ display: "flex", flexDirection: "column" }}>
               <Badge variant="primary" style={{ alignSelf: "flex-start", marginBottom: "16px" }}>{r.tag}</Badge>
-              <h2 style={{ fontSize: "1.3rem", color: "#fff", marginBottom: "12px" }}>
+              <h2 style={{ fontSize: "1.3rem", color: "var(--text-primary)", marginBottom: "12px" }}>
                 {r.title}
               </h2>
               <div style={{ display: "flex", gap: "16px", color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "24px" }}>
